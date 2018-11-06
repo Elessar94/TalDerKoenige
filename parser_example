@@ -1,0 +1,65 @@
+project
+$shortcode
+$shortname
+$longname
+$language1fordescription (optional), type None if no
+$description1 (only if language was selected)
+$n-timesdescription (optional)
+$keyword1 (optional), type None if no
+$n-times-keyword, type None if no
+$logourl (optional), type None if no
+ontologies
+ontology1
+$name
+$language1fordescription (optional), type None if no
+$description1 (only if language was selected)
+$n-timesdescriptionblock (optional)
+$n-times-ontology (optional)
+resources
+resource1
+$name
+$ontologynumber
+$superclass (optional, type None if no)
+$n-times-superclass (optional)
+$language1forlabels (optional), type None if no
+$label1 (only if language was selected)
+$n-times-label (optional)
+$language1forcomments (optional), type None if no
+$comment1 (only if language was selected)
+$n-times-comment (optional)
+$n-times-resource
+properties
+property1
+$name
+$ontologynumber
+$superprop(optional, type None if no)
+$n-timessuperprop (optional)
+
+
+details to properties TODO
+cardinalities
+details to cardinalities TODO
+
+##################################
+
+{
+    "project":
+    "lists": [
+        { "name": "epochen",
+        "nodes": [
+            "name": "1.jhdt", "label": "gaga", "value": "gaga",
+            nodes: [
+            ]
+        ]
+
+    ]
+    "ontology": {
+        …
+        "Resource": {
+            "properties": [
+                {"name": "smFund", "type": "text", "card": "1-n"},
+                {"name": "hasMuseum", "type": "link:smFund", "card": "1"
+            ]
+        }
+    }
+}
