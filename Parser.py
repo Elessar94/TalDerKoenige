@@ -1,7 +1,9 @@
+import pprint
 class Parser:
     """
     Parses input to create Projects, ontologies, properties and to link them appropriately
     """
+    ##TODO handle empty entries, especially in pretty_lines
     project_data = {}
 
     def __init__(self, file: str):
@@ -124,6 +126,30 @@ class Parser:
 
         return resource_data
 
+    def read_attributes(self,start, end):
+        i = start -1
+        attributes_data={}
+
+        while i<end:
+            i=i+1
+            line = self.data[i]
+            if i in self.already_read:
+                continue
+            j = line.find("=")
+            if j!=-1:
+                one=line[0:j]
+                two=line[j+1:len(line)]
+                while (one[0]==' '):
+                    one = one[1:len(one)]
+                while (two[0]==' '):
+                    two=two[1:len(two)]
+                while (one[-1]==' ' or one[-1]== '\n'):
+                    one = one[0:len(one)-1]
+                while (two[-1] == ' ' or two[-1] == '\n'):
+                    two = two[0:len(two) - 1]
+                attributes_data[one]=two
+            self.already_read.append(i)
+        return attributes_data
     def read_property(self, start, end):
         property_data={}
         i = start-1
@@ -142,8 +168,11 @@ class Parser:
                 property_data["Object"] = self.pretty_line(line, "Object")
             if line.find("Cardinality")!=-1:
                 property_data["Cardinality"] = self.pretty_line(line, "Cardinality")
+            if line.find("GUI Element")!=-1:
+                property_data["GUI Element"] = self.pretty_line(line, "GUI Element")
+            if line.find("GUI Attributes")!=-1:
+                property_data["GUI Attributes"]= self.read_attributes(i,self.find_end(i))
             self.already_read.append(i)
-
         return property_data
 
     def read_project(self):
@@ -175,5 +204,5 @@ class Parser:
         return self.project_data
 
 
-parser = Parser("parser_example")
-print(parser.read_project())
+parser = Parser("ubkvp-onto")
+pprint.pprint(parser.read_project())

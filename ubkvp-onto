@@ -1,0 +1,614 @@
+{
+    Short code: 1231//TODO
+    Short name: tdk
+    Long name: Tal der Koenige
+    Description: {
+        Language: @en, Value: hallo//TODO: ask Lukas Richner for this
+    }
+    Keywords: {
+        nix//TODO: ask what this exactly is and Lukas Richner for input
+    }
+    Logo: {
+    }
+    //TODO: add Lists when implemented in Parser
+    Ontology: {
+        Name: tdk_onto
+        Label: Die Tal der Koenige-Ontologie
+        Resource: {
+            Name: Persoenlichkeit
+            Super classes: {
+                knora-base:Resource
+            }
+            Labels: {
+                Language: @de, Value: Persoenlichkeit //TODO entries like this are about to change
+                Language: @en, Value: Personage
+            }
+            Property: {
+                Name: persoenlichkeitName
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Name
+                    Language: @en, Value: Name
+                }
+                Object: knora-base:TextValue
+                Cardinality: 0-1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                    maxlength=64
+                }
+            }
+            Property: {
+                Name: persoenlichkeitTitel
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Titel
+                    Language: @en, Value: Title
+                }
+                Object: knora-base:TextValue
+                Cardinality: 0-1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                    maxlength=30
+                }
+            } //TODO ask about GUI Order
+            Property: {
+                Name: persoenlichkeitSMFund //We use this to represent the SM/Find Nr which should be displayed in the GUI
+                Super Properties: {
+                    knora-base:hasLinkto //TODO ask LURO about hasLinktoValue and whether we need to implement this.
+                }
+                Labels: {
+                    Language: @de, Value: SM/Fund Nr
+                    Language: @en, Value: SM/Find Nr
+                }
+                Object: SMFund
+                Cardinality: 1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                    maxlength=30
+                }
+            }
+            Property: {
+                Name: persoenlichkeitGefaessNr
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Gefaess Nr
+                    Language: @en, Value: Vessel number
+                }
+                Object: knora-base:IntValue
+                Cardinality: 0-1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                    maxlength=30
+                }
+            }
+            Property: {
+                Name: persoenlichkeitMaskenNr
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Masken Nr
+                    Language: @en, Value: Mask number
+                }
+                Object: knora-base:IntValue
+                Cardinality: 0-1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                    maxlength=30
+                }
+            }
+            Property: {
+                Name: persoenlichkeitKartonageNr
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Kartonage Nr
+                    Language: @en, Value: Cardboard number
+                }
+                Object: knora-base:IntValue
+                Cardinality: 0-1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                    maxlength=30
+                }
+            }
+            Property: {
+                Name: persoenlichkeitDatierung1
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Datierung 1
+                    Language: @en, Value: Dating 1
+                }
+                Object: knora-base:ListValue
+                Cardinality: 1-n
+                //TODO add GUI ELEMENT AND GUI ATTRIBUTES (LIST)
+            }
+            Property: {
+                Name: persoenlichkeitDatierung2
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Datierung 2
+                    Language: @en, Value: Dating 2
+                }
+                Object: knora-base:ListValue
+                Cardinality: 1-n
+                //TODO add GUI ELEMENT AND GUI ATTRIBUTES (LIST)
+            }
+        }
+        Resource: {
+            Name:Bild
+            Super classes: {
+                knora-base:StillImageRepresentation
+            }
+            Labels: {
+                Language: @de, Value: Bild //TODO entries like this are about to change
+                Language: @en, Value: Image
+            }
+            Property: {
+                Name: bildDateiname
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Dateiname
+                    Language: @en, Value: File name
+                }
+                Object: knora-base:TextValue
+                Cardinality: 1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                }
+
+            }
+            Property: {
+                Name: bildLage //We use this to display many properties, all connected to the location, via a link to a Lage-Object
+                Super Properties: {
+                    knora-base:hasLinkto
+                }
+                Labels: {
+                    Language: @de, Value: Lage
+                    Language: @en, Value: Location
+                }
+                Object: Lage
+                Cardinality: 1
+                GUI Element: salsah-gui:SimpleText //TODO is this correct?
+                GUI Attributes: {
+                    size=12
+                }
+            }
+                Property: {
+                Name: bildKampagne
+                Super Properties: {
+                    knora-base:hasLinkto
+                }
+                Labels: {
+                    Language: @de, Value: Kampagne
+                    Language: @en, Value: Campaign
+                }
+                Object: Kampagne
+                Cardinality: 1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                }
+            }
+            Property: {
+                Name: bildDatum //We use this to display many properties, all connected to the location, via a link to a Lage-Object
+                Super Properties: {
+                    knora-base:hasValue
+                    dcterms:date
+                }
+                Labels: {
+                    Language: @de, Value: Datum
+                    Language: @en, Value: Date
+                }
+                Object: knora-base:Date-Value
+                Cardinality: 0-1
+                GUI Element: salsah-gui:Date
+                GUI Attributes: {
+                }
+
+            }
+            Property: {
+                Name: bildAbhub
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Abhub
+                    Language: @en, Value: Refuse
+                }
+                Object: knora-base:TextValue
+                Cardinality: 1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                }
+            }
+            Property: {
+                Name: bildPositon
+                Super Properties: {
+                    knora-base:hasLinkto
+                }
+                Labels: {
+                    Language: @de, Value: Position/Befundliste
+                    Language: @en, Value: Position/Findslist
+                }
+                Object: knora-base:Position
+                Cardinality: 0-1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                }
+            }
+             Property: {
+                Name: bildSMFund //We use this to represent the SM/Find Nr which should be displayed in the GUI
+                Super Properties: {
+                    knora-base:hasLinkto //
+                }
+                Labels: {
+                    Language: @de, Value: SM/Fund Nr
+                    Language: @en, Value: SM/Find Nr
+                }
+                Object: SMFund
+                Cardinality: 1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                    maxlength=30
+                }
+            }
+            Property: {
+                Name: bildGefaessNr
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Gefaess Nr
+                    Language: @en, Value: Vessel number
+                }
+                Object: knora-base:IntValue
+                Cardinality: 0-1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                    maxlength=30
+                }
+            }
+            Property: {
+                Name: bildMaskenNr
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Masken Nr
+                    Language: @en, Value: Mask number
+                }
+                Object: knora-base:IntValue
+                Cardinality: 0-1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                    maxlength=30
+                }
+            }
+            Property: {
+                Name: bildKartonageNr
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Kartonage Nr
+                    Language: @en, Value: Cardboard number
+                }
+                Object: knora-base:IntValue
+                Cardinality: 0-1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                    maxlength=30
+                }
+            }
+            Property: {
+                Name: bildAnthropologieNr
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Anthropologie Nummer
+                    Language: @en, Value: Anthropology Number
+                }
+                Object: knora-base:IntValue
+                Cardinality: 0-1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                    maxlength=30
+                }
+            }
+            Property: {
+                Name: bildBemerkung
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Bemerkung
+                    Language: @en, Value: Remark
+                }
+                Object: knora-base:TextValue
+                Cardinality: 0-1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                    maxlength=30
+                }
+            }
+            Property: {
+                Name: bildAutor
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Autor
+                    Language: @en, Value: Author
+                }
+                Object: knora-base:ListValue
+                Cardinality: 0-1
+                //TODO add GUI ELEMENT AND GUI ATTRIBUTES (LIST)
+            }
+        }
+        Resource: {
+            Name: Position
+            Super classes: {
+                knora-base:Resource
+            }
+            Labels: {
+                Language: @de, Value: Position/Befundliste
+                Language: @en, Value: TODO
+            }
+            Property: {
+                Name: positionNr
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Nummer
+                    Language: @en, Value: Number
+                }
+                Object: knora-base:TextValue
+                Cardinality: 1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                }
+            }
+            Property: {
+                Name: positionName
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Name
+                    Language: @en, Value: Name
+                }
+                Object: knora-base:TextValue
+                Cardinality: 1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                }
+            }
+            Property: {
+                Name: positionDatum
+                Super Properties: {
+                    knora-base:hasValue
+                    dcterms:date
+                }
+                Labels: {
+                    Language: @de, Value: Datum
+                    Language: @en, Value: Date
+                }
+                Object: knora-base:DateValue
+                Cardinality: 0-1
+                GUI Element: salsah-gui:DateValue
+            }
+            Property: {
+                Name: positionKampagne
+                Super Properties: {
+                    knora-base:hasLinkto
+                }
+                Labels: {
+                    Language: @de, Value: Kampagne
+                    Language: @en, Value: Campaign
+                }
+                Object: Kampagne
+                Cardinality: 1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                }
+            }
+            Property: {
+                Name: positionLage //We use this to replace many GUI information which can be found in Lage objects
+                Super Properties: {
+                    knora-base:hasLinkto
+                }
+                Labels: {
+                    Language: @de, Value: Lage
+                    Language: @en, Value: Location
+                }
+                Object: Lage
+                Cardinality: 1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                }
+            }
+            Property: {
+                Name: positionKurzbeschreibung
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Kurzbeschreibung
+                    Language: @en, Value: Short description
+                }
+                Object: knora-base:TextValue
+                Cardinality: 1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                }
+            }
+            Property: {
+                Name: positionKurzinterpretation
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Kurzinterpreatation
+                    Language: @en, Value: Short interpretation
+                }
+                Object: knora-base:TextValue
+                Cardinality: 1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                }
+            }
+            Property: {
+                Name: positionVorgehen
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Vorgehen beim Abbau
+                    Language: @en, Value: Approach for mining
+                }
+                Object: knora-base:TextValue
+                Cardinality: 1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                }
+            }
+            Property: {
+                Name: positionDarueber
+                Super Properties: {
+                    knora-base:hasLinkto
+                }
+                Labels: {
+                    Language: @de, Value: Position darueber
+                    Language: @en, Value: Position on top
+                }
+                Object: Position
+                Cardinality: 0-n
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                }
+            }
+            Property: {
+                Name: positionDarunter
+                Super Properties: {
+                    knora-base:hasLinkto
+                }
+                Labels: {
+                    Language: @de, Value: Position darunter
+                    Language: @en, Value: Position below
+                }
+                Object: Position
+                Cardinality: 0-n
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                }
+            }
+            Property: {
+                Name: positionBeschreibung
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Beschreibung
+                    Language: @en, Value: Description
+                }
+                Object: knora-base:TextValue
+                Cardinality: 1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                }
+        }
+        Property: {
+                Name: positionInterpretation
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Interpretation
+                    Language: @en, Value: Interpretation
+                }
+                Object: knora-base:TextValue
+                Cardinality: 1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                }
+            }
+        Property: {
+                Name: positionBemerkung
+                Super Properties: {
+                    knora-base:hasValue
+                }
+                Labels: {
+                    Language: @de, Value: Bemerkung
+                    Language: @en, Value: Remark
+                }
+                Object: knora-base:TextValue
+                Cardinality: 0-1
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                }
+            }
+        Property: {
+                Name: positionZeichnung
+                Super Properties: {
+                    knora-base:hasLinkto
+                }
+                Labels: {
+                    Language: @de, Value: Zeichnung
+                    Language: @en, Value: Drawing
+                }
+                Object: Zeichnung
+                Cardinality: 0-n
+                GUI Element: salsah-gui:SimpleText
+                GUI Attributes: {
+                    size=12
+                }
+           }
+        }
+
+
+    }
+
+}

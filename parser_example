@@ -15,14 +15,13 @@
         example.pgn
         second_logo.pgn
     }
-    }
     //TODO add text to add dropdown lists
     Ontology: {
         Name: tdk_onto
         Label: Die Tal der Koenige-Ontologie
         Resource: {
             Name: Persoenlichkeit
-            Super Classes: { //TODO maybe cut superclasses and properties for this parser?
+            Super Classes: {
                 EFG
             }
             Labels: {
@@ -32,9 +31,8 @@
                 Language: @en, Value: abc
             }
             Property {
-                {
                    Name: smNr
-                   Super Properties: { //TODO maybe cut superclasses and properties for this parser?
+                   Super Properties: {
                         EFG
                         }
                    Labels: {
@@ -42,12 +40,16 @@
                         }
                    Object: SMFund
                    Cardinality: 1-n
-                }
+                   GUI Element: SimpleText
+                   GUI Attributes: {
+                        size=12
+                        maxlength=38
+                   }
             }
         }
         Resource: {
             Name: SMFund
-            Super Classes: { //TODO maybe cut superclasses and properties for this parser?
+            Super Classes: {
                 EFG
             }
             Labels: {
@@ -59,7 +61,7 @@
             Property: {
                 {
                    Name: Nr
-                   Super Properties: { //TODO maybe cut superclasses and properties for this parser?
+                   Super Properties: {
                         EFG
                         }
                    Labels: {
@@ -71,4 +73,5 @@
             }
         }
     }
+}
 

@@ -1,0 +1,3094 @@
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix knora-base: #TODO insert link to knora-base .
+@prefix salsah-gui: #TODO insert link to salsah gui .
+@base #TODO insert link to this file .
+
+TODO INSERT LINK TO THIS FILE rdf:type owl:Ontology;
+rdfs:label "The UBKVP-project database ontology";
+#TODO insert attachedtoProject
+#TODO UFZEICHNE MIT PROPERTYNAME UND KLASSENAME
+##########################################################
+#
+# PROPERTIES
+#
+##########################################################
+
+##########################################################
+
+##########################################################
+### ubkvp:kampagne
+
+:kampagne rdf:type owl:ObjectProperty;
+
+	rdfs:subPropertyOf knora-base:hasValue;
+	rdfs:label "Kampagne"@de , "Campain"@en;
+
+	knora-base:subjectClassConstraint :Kampagne;
+	knora-base:objectClassConstraint knora-base:TextValue;
+
+	salsah-gui:guiElement salsah-gui:SimpleText;
+	salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:kampagneStartDatum
+
+:kampagneStartDatum rdf:type owl:ObjectProperty;
+
+	rdfs:subPropertyOf knora-base:hasValue, dcterms:date;
+	rdfs:label "Startdatum"@de , "Starting date"@en;
+
+	knora-base:subjectClassConstraint :Kampagne;
+	knora-base:objectClassConstraint knora-base:DateValue;
+
+	salsah-gui:guiElement salsah-gui:Date .
+
+##########################################################
+### ubkvp:kampagneEndDatum
+
+:kampagneEndDatum rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue, dcterms:date;
+    rdfs:label "Enddatum"@de , "End date"@en;
+
+    knora-base:subjectClassConstraint :Kampagne;
+    knora-base:objectClassConstraint knora-base:DateValue;
+
+    salsah-gui:guiElement salsah-gui:Date.
+
+##########################################################
+### ubkvp:kampagneTeilnehmer
+
+:kampagneTeilnehmer rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+   	rdfs:label "Teilnehmer"@de , "Participants"@en;
+
+    knora-base:subjectClassConstraint :Kampagne;
+   	knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+   	salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:kampagneGrab
+
+:kampagneGrab rdf:type owl:ObjectProperty;
+
+ 	rdfs:subPropertyOf knora-base:hasValue;
+ 	rdfs:label "Grab"@de , "Tomb"@en;
+
+ 	knora-base:subjectClassConstraint :Kampagne;
+ 	knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" ,"max=TODO" .
+
+##########################################################
+### ubkvp:kampagneUmgebung #TODO:Is this correctly linked to Lage? I suppose this should all be replaced with a link to Lage called Lage itself.
+
+:ubkvp:kampagneUmgebung rdf:type owl:ObjectProperty;
+
+ 	rdfs:subPropertyOf knora-base:hasLinkto;
+ 	rdfs: label "Umgebung"@de, "Surrounding"@en;
+
+ 	knora-base:subjectClassConstraint :Kampagne;
+ 	knora-base:objectClassConstraint :Lage;
+
+ 	salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:kampagneUmgebungValue
+
+:kampagneUmgebungValue rdf:type owl:ObjectProperty;
+
+	rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs: label "Umgebung"@de, "Surrounding"@en;
+
+ 	knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Kampagne;
+
+ 	salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:kampagneBemerkung
+
+:kampagneBemerkung rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Bemerkung"@de , "Remark"@en;
+
+    knora-base:subjectClassConstraint :Kampagne;
+  	knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:kampagneBild
+
+:kampagneBild rdf:type owl:ObjectProperty;
+
+  	rdfs:subPropertyOf knora-base:hasLinkto;
+  	rdfs: label "Bild"@de, "Image"@en;
+
+  	knora-base:subjectClassConstraint :Kampagne;
+  	knora-base:objectClassConstraint :Bild;
+
+  	salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:kampagneBildValue
+
+:kampagneBildValue rdf:type owl:ObjectProperty;
+
+ 	rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs: label "Bild"@de, "Image"@en;
+
+  	knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Kampagne;
+
+  	salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:katalogNr
+
+:katalogNr rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+ 	rdfs:label "Nummer"@de , "Number"@en;
+
+ 	knora-base:subjectClassConstraint :Katalog;
+ 	knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" ,"max=TODO" .
+
+##########################################################
+### ubkvp:katalogKurzzitat
+
+:katalogKurzzitat rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Kurzitat"@de , "Short quote"@en;
+
+    knora-base:subjectClassConstraint :Katalog;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:katalogAbbildung #TODO should this be changed to a link to Bild?
+
+:katalogAbbildung rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Abbildung"@de , "Figure"@en;
+
+    knora-base:subjectClassConstraint :Katalog;
+   	knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:katalog
+
+:katalog rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Katalog"@de , "Catalog"@en;
+
+    knora-base:subjectClassConstraint :Katalog;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:katalogPlan
+
+:katalogPlan rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinkto;
+    rdfs: label "Plan"@de, "Plan"@en;
+
+    knora-base:subjectClassConstraint :Katalog;
+    knora-base:objectClassConstraint :Plan;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:katalogPlanValue
+
+:katalogPlanValue rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs: label "Plan"@de, "Plan"@en;
+
+    knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Kampagne;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:katalogSMNr
+
+:katalogSMNr rdf:type owl:ObjectProperty;
+
+   	rdfs:subPropertyOf knora-base:hasLinkto;
+   	rdfs: label "SM Nummer@de , "SM Number"@en;
+
+   	knora-base:subjectClassConstraint :Katalog;
+   	knora-base:objectClassConstraint :SMFund;
+
+   	salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:katalogSMNrValue
+
+:katalogSMNrValue rdf:type owl:ObjectProperty;
+
+   	rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs: label "SM Nummer@de , "SM Number"@en;
+
+   	knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Katalog;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:katalogFundNr
+
+:katalogFundNr rdf:type owl:ObjectProperty;
+
+   	rdfs:subPropertyOf knora-base:hasLinkto;
+    rdfs: label "Fund Nr"@de, "Find Nr"@en;
+
+    knora-base:subjectClassConstraint :Katalog;
+    knora-base:objectClassConstraint :SMFund;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:katalogFundNrValue
+
+:katalogFundNrValue rdf:type owl:ObjectProperty;
+
+	rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs:label "Fund Nr", "Find Nr"@en;
+
+    knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Katalog;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:katalogGefaessNr
+
+:katalogGefaessNr rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+  	rdfs:label "Gefaess Nr"@de , "Vessel Nr"@en;
+
+  	knora-base:subjectClassConstraint :Katalog;
+  	knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" ,"max=TODO" .
+
+##########################################################
+### ubkvp:katalogMaskenNr
+
+:katalogMaskenNr rdf:type owl:ObjectProperty;
+
+  	rdfs:subPropertyOf knora-base:hasValue;
+  	rdfs:label "Masken Nr"@de , "Mask Nr"@en;
+
+  	knora-base:subjectClassConstraint :Katalog;
+  	knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" ,"max=TODO" .
+
+##########################################################
+### ubkvp:katalogKartonageNr
+
+:katalogKartonageNr rdf:type owl:ObjectProperty;
+
+  	rdfs:subPropertyOf knora-base:hasValue;
+  	rdfs:label "Kartonage Nr"@de , "Cardboard number"@en;
+
+  	knora-base:subjectClassConstraint :Katalog;
+  	knora-base:objectClassConstraint knora-base:IntValue;
+  	salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:lageNr
+
+:lageNr rdf:type owl:ObjectProperty;
+
+  	rdfs:subPropertyOf knora-base:hasValue;
+  	rdfs:label "Nummer"@de , "Number"@en;
+
+  	knora-base:subjectClassConstraint :Lage;
+  	knora-base:objectClassConstraint knora-base:IntValue;
+
+  	salsah-gui:guiElement salsah-gui:Spinbox;
+  	salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:lageGrab
+
+:lageGrab rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+   	rdfs:label "Grab"@de , Tomb"@en;
+
+    knora-base:subjectClassConstraint :Lage;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:lageUmgebung
+
+:lageUmgebung rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Umgebung"@de , "Surrounding"@en;
+
+    knora-base:subjectClassConstraint :Lage;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:lageAreal
+
+:lageAreal rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Areal"@de , "Area"@en;
+
+    knora-base:subjectClassConstraint :Lage;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12", "maxlength=TODO" .
+
+##########################################################
+### ubkvp:lageRaum
+
+:lageRaum rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Raum"@de , "Room"@en;
+
+    knora-base:subjectClassConstraint :Lage;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+########################################################
+### ubkvp:lageSchnitt
+
+:lageSchnitt rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Schnitt/Quadrant"@de , "Section"@en;
+
+    knora-base:subjectClassConstraint :Lage;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planName
+
+:planName rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Name"@de , "Name"@en;
+
+    knora-base:subjectClassConstraint :Plan;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planMassstab
+
+:planMassstab rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Massstab"@de , "Scale"@en;
+
+    knora-base:subjectClassConstraint :Plan;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planDatum
+
+:planDatum rdf:type owl:ObjectProperty;
+
+  	rdfs:subPropertyOf knora-base:hasValue, dcterms:date; #TODO ask what dcterms does.
+  	rdfs:label "Datum"@de , "Date"@en;
+
+    knora-base:subjectClassConstraint :Plan;
+  	knora-base:objectClassConstraint knora-base:DateValue;
+
+  	salsah-gui:guiElement salsah-gui:Date.
+
+##########################################################
+### ubkvp:planKampagne
+
+:planPosition rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinkto;
+    rdfs: label "Kampagne"@de, "Campaign"@en;
+
+    knora-base:subjectClassConstraint :Plan;
+    knora-base:objectClassConstraint :Kampagne;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planKampagneValue
+
+:planKampagneValue rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs: label "Kampagne"@de, "Campaign"@en;
+
+    knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Plan;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12", "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planDeckblatt
+
+:planDeckblatt rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Deckblatt"@de , "Cover sheet"@en;
+
+    knora-base:subjectClassConstraint :Plan;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:planPosition
+
+:planPosition rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinkto;
+    rdfs: label "Position"@de, "Position"@en;
+
+    knora-base:subjectClassConstraint :Plan;
+    knora-base:objectClassConstraint :Position;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planPositionValue
+
+:planPositionValue rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs: label "Position"@de, "Position"@en;
+
+    knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Plan;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12", "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planGrab
+
+:planGrab rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Grab"@de , "Tomb"@en;
+
+    knora-base:subjectClassConstraint :Plan;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:planUmgebung #TODO should this be linked to Lage?
+
+:planUmgebung rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Umgebung"@de , "Surrounding"@en;
+
+    knora-base:subjectClassConstraint :Plan;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" ,  "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planAreal
+
+:planAreal rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Areal"@de , "Area"@en;
+    knora-base:subjectClassConstraint :Plan;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planRaum
+
+:planRaum rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Raum"@de , "Room"@en;
+
+    knora-base:subjectClassConstraint :Plan;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12",  "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planSchnitt
+
+:planSchnitt rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Schnitt/Quadrant"@de , "Section"@en;
+
+    knora-base:subjectClassConstraint :Plan;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planBeschreibung
+
+:planBeschreibung rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Beschreibung"@de , "Description"@en;
+
+    knora-base:subjectClassConstraint :Plan;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planBemerkung
+
+:planBemerkung rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Bemerkung"@de , "Remark"@en;
+
+    knora-base:subjectClassConstraint :Plan;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planumNr
+
+:planumNr rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+   	rdfs:label "Nummer"@de , "Number"@en;
+
+    knora-base:subjectClassConstraint :Planum;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:planumPosition
+
+:planPosition rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinkto;
+    rdfs: label "Position"@de, "Position"@en;
+
+    knora-base:subjectClassConstraint :Planum;
+    knora-base:objectClassConstraint :Position;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planumPositionValue
+
+:planumPositionValue rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs: label "Position"@de, "Position"@en;
+
+    knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Planum;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planumAbhub
+
+:planumAbhub rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Abhub"@de , "TODO"@en;
+
+    knora-base:subjectClassConstraint :Planum;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:planum
+
+:planum rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Planum"@de , "Plane"@en;
+
+    knora-base:subjectClassConstraint :Planum;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:planumDatum
+
+:planumDatum rdf:type owl:ObjectProperty;
+
+ 	rdfs:subPropertyOf knora-base:hasValue, dcterms:date;
+ 	rdfs:label "Datum"@de , "Date"@en;
+
+ 	knora-base:subjectClassConstraint :Planum;
+ 	knora-base:objectClassConstraint knora-base:DateValue;
+
+ 	salsah-gui:guiElement salsah-gui:Date.
+
+##########################################################
+### ubkvp:planumKampagne
+
+:planumKampagne rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinkto;
+    rdfs: label "Kampagne"@de, "Campain"@en;
+
+    knora-base:subjectClassConstraint :Planum;
+    knora-base:objectClassConstraint :Kampagne;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planumKampagneValue
+
+:planumKampagneValue rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs: label "Kampagne"@de, "Campaign"@en;
+
+    knora-base:subjectClassConstraint :Planum;
+    knora-base:objectClassConstraint knora-base:LinkValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planumBeschreibung
+
+:planumBeschreibung rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Beschreibung"@de , "Description"@en;
+
+    knora-base:subjectClassConstraint :Planum;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+                                      	                        .
+##########################################################
+### ubkvp:planumBemerkung
+
+:planumBemerkung rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Bemerkung"@de , "Remark"@en;
+
+    knora-base:subjectClassConstraint :Planum;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planumPlan
+:planumPlan rdf:type owl:ObjectProperty;
+
+       rdfs:subPropertyOf knora-base:hasLinkto;
+       rdfs: label "Plan"@de, "Plan"@en;
+
+       knora-base:subjectClassConstraint :Planum;
+       knora-base:objectClassConstraint :Plan;
+
+       salsah-gui:guiElement salsah-gui:SimpleText;
+       salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planumPlanValue
+
+:planumPlanValue rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs: label "Plan"@de, "Plan"@en;
+
+    knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Planum;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planumBild
+
+:planumBild rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinkto;
+    rdfs: label "Bild"@de, "Image"@en;
+
+    knora-base:subjectClassConstraint :Planum;
+    knora-base:objectClassConstraint :Bild;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:planumBildValue
+
+:planumBildValue rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs: label "Bild"@de, "Image"@en;
+
+    knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Planum;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+
+
+
+##########################################################
+### ubkvp:profilNr
+
+:profilNr rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Nummer"@de , "Number"@en;
+
+    knora-base:subjectClassConstraint :Profil;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:profilPosition
+
+:profilPosition rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinkto;
+    rdfs: label "Position"@de , "Position"@en;
+
+    knora-base:subjectClassConstraint :Profil;
+    knora-base:objectClassConstraint :Position;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:profilPositionValue
+
+:positionZeichnungValue rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs: label "Position"@de, "Position"@en;
+
+    knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Profil;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+ ### ubkvp:profilDatum
+
+:profilDatum rdf:type owl:ObjectProperty;
+
+ 	rdfs:subPropertyOf knora-base:hasValue, dcterms:date;
+ 	rdfs:label "Datum"@de , "Date"@en;
+
+ 	knora-base:subjectClassConstraint :Profil;
+ 	knora-base:objectClassConstraint knora-base:DateValue;
+
+ 	salsah-gui:guiElement salsah-gui:Date.
+
+##########################################################
+### ubkvp:profilKampagne
+
+:profilKampagne rdf:type owl:ObjectProperty;
+
+  	rdfs:subPropertyOf knora-base:hasLinkto;
+  	rdfs: label "Kampagne"@de, "Campaign"@en;
+
+  	knora-base:subjectClassConstraint :Profil;
+  	knora-base:objectClassConstraint :Kampagne;
+
+  	salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:profilKampagneValue
+
+:profilKampagneValue rdf:type owl:ObjectProperty;
+
+  	rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs:label "Kampagne", "Campaign"@en;
+
+  	knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Profil;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+  	salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:profilBeschreibung
+
+:profilBeschreibung rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Beschreibung"@de , "Description"@en;
+
+
+    knora-base:subjectClassConstraint :Profil;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:profilLegende
+
+:profilLegende rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Legende"@de , "Legend"@en;
+
+    knora-base:subjectClassConstraint :Profil;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:profilBemerkung
+
+:profilBemerkung rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Bemerkung"@de , "Remark"@en;
+
+    knora-base:subjectClassConstraint :Profil;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:profilPlan
+
+:profilPlan rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinkto;
+    rdfs: label "Plan"@de, "Plan"@en;
+
+    knora-base:subjectClassConstraint :Profil;
+    knora-base:objectClassConstraint :Plan;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:profilPlanValue
+
+:profilPlanValue rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs:label "Plan", "Plan"@en;
+
+    knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Profil;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:profilBild
+
+:profilBild rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinkto;
+    rdfs: label "Bild"@de, "Image"@en;
+
+    knora-base:subjectClassConstraint :Profil;
+    knora-base:objectClassConstraint :Bild;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:profilBildValue
+
+:profilBildValue rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs:label "Bild", "Bild"@en;
+
+    knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Profil;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:publikationKurzzitat
+
+:publikationKurzzitat rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Kurzzitat"@de , "Short Quote"@en;
+
+    knora-base:subjectClassConstraint :Publikation;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:publikationTitel
+
+:publikationTitel rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Titel"@de , "Title"@en;
+
+    knora-base:subjectClassConstraint :Publikation;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:publikationJahr
+
+:publikationJahr rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Jahr"@de , "Year"@en;
+
+    knora-base:subjectClassConstraint :Publikation;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+
+##########################################################
+### ubkvp:publikationZeitschrift
+
+:publikationZeitschrift rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Zeitschrift"@de , "Magazine"@en;
+    knora-base:subjectClassConstraint :Publikation;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:publikationReihe
+
+:publikationReihe rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Reihe"@de , "Series"@en;
+
+    knora-base:subjectClassConstraint :Publikation;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:publikationBand
+
+:publikationBand rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Band"@de , "Volume"@en;
+
+    knora-base:subjectClassConstraint :Publikation;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:publikationHerausgeber
+
+:publikationHerausgeber rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Herausgeber"@de , "Publisher"@en;
+
+    knora-base:subjectClassConstraint :Publikation;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+ ### ubkvp:publikationBeitraege
+
+:publikationBeitraege rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Beitraege"@de , "Article"@en;
+
+    knora-base:subjectClassConstraint :Publikation;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:publikationLink #TODO is this convertible into Hyperlink format?
+
+:publikationLink rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Link"@de , "Link"@en;
+
+    knora-base:subjectClassConstraint :Publikation;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:publikationZusammenfassung
+
+:publikationZusammenfassung rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Zusammenfassung"@de , "Summary"@en;
+
+    knora-base:subjectClassConstraint :Publikation;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+#########################################################
+### ubkvp:publikationInhaltsverzeichnis #TODO is this convertible into Hyperlink format?
+
+:publikationInhaltsverzeichnis rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Inhaltsverzeichnis"@de , "Table of Content"@en;
+
+    knora-base:subjectClassConstraint :Publikation;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:publikationStichwort
+
+:publikationStichwort rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Stichwort"@de , "Keyword"@en;
+
+    knora-base:subjectClassConstraint :Publikation;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:tagebuchNr
+
+:tagebuchNr rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Nummer"@de , "Number"@en;
+
+    knora-base:subjectClassConstraint :Tagebuch;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:tagebuchDatum
+
+:tagebuchDatum rdf:type owl:ObjectProperty;
+
+  	rdfs:subPropertyOf knora-base:hasValue, dcterms:date;
+  	rdfs:label "Datum"@de , "Date"@en;
+
+    knora-base:subjectClassConstraint :Tagebuch;
+  	knora-base:objectClassConstraint knora-base:DateValue;
+
+  	salsah-gui:guiElement salsah-gui:Date.
+
+##########################################################
+### ubkvp:tagebuchKampagne
+
+:tagebuchKampagne rdf:type owl:ObjectProperty;
+
+  	rdfs:subPropertyOf knora-base:hasLinkto;
+  	rdfs: label "Kampagne"@de, "Campaign"@en;
+
+    knora-base:subjectClassConstraint :Tagebuch;
+  	knora-base:objectClassConstraint :Kampagne;
+
+  	salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:tagebuchKampagneValue
+
+:tagebuchKampagneValue rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs:label "Kampagne", "Campaign"@en;
+
+  	knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Tagebuch;
+
+  	salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:tagebuchGrab
+
+:tagebuchGrab rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+   	rdfs:label "Grab"@de , "Tomb"@en;
+
+    knora-base:subjectClassConstraint :Tagebuch;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:tagebuchUmgebung
+
+:tagebuchUmgebung rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Umgebung"@de , "Surrounding"@en;
+
+    knora-base:subjectClassConstraint :Tagebuch;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+########################################################## #TODO ask if these Grab/Umgebung/Areal sequences shouldnt be replaced by a link to Position or Lage
+### ubkvp:tagebuchAreal
+
+:tagebuchAreal rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Areal"@de , "Area"@en;
+
+    knora-base:subjectClassConstraint :Tagebuch;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:tagebuchRaum
+
+:tagebuchRaum rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Raum"@de , "Room"@en; #TODO check this translation.
+
+    knora-base:subjectClassConstraint :Tagebuch;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:tagebuchFundlage
+
+:tagebuchFundlage rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Fundlage"@de , "TODO"@en;
+
+    knora-base:subjectClassConstraint :Tagebuch;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:tagebuchSchnitt
+
+:tagebuchSchnitt rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Schnitt/Quadrant"@de , "TODO"@en;
+
+    knora-base:subjectClassConstraint :Tagebuch;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:tagebuchAbhub
+
+:tagebuchAbhub rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+   	rdfs:label "Abhub"@de , "TODO"@en;
+
+    knora-base:subjectClassConstraint :Tagebuch;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:tagebuchEintrag
+
+:tagebuchEintrag rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Eintrag"@de , "Entry"@en;
+
+    knora-base:subjectClassConstraint :Tagebuch;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:tagebuchZeichnung
+
+:tagebuchZeichnung rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinkto;
+    rdfs: label "Zeichnung"@de, "Drawing"@en;
+
+    knora-base:subjectClassConstraint :Tagebuch;
+    knora-base:objectClassConstraint :Zeichnung;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:tagebuchZeichnungValue
+
+:tagebuchZeichnungValue rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs: label "Zeichnung"@de, "Drawing"@en;
+
+    knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Tagebuch;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:tagebuchPlan
+
+:tagebuchPlan rdf:type owl:ObjectProperty;
+
+  	rdfs:subPropertyOf knora-base:hasLinkto;
+  	rdfs: label "Plan@de, "Plan"@en;
+
+  	knora-base:subjectClassConstraint :Tagebuch;
+  	knora-base:objectClassConstraint :Plan;
+
+  	salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:tagebuchPlanValue
+
+:tagebuchPlanValue rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs:label "Plan";
+
+  	knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Tagebuch;
+
+  	salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:zeichnungNr
+
+:zeichnungNr rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Nummer"@de , "Number"@en;
+
+    knora-base:subjectClassConstraint :Zeichnung;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:zeichnungDatum
+
+:zeichnungDatum rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue, dcterms:date;
+    rdfs:label "Datum"@de , "Date"@en;
+
+    knora-base:subjectClassConstraint :Zeichnung;
+    knora-base:objectClassConstraint knora-base:DateValue;
+
+    salsah-gui:guiElement salsah-gui:Date.
+
+##########################################################
+### ubkvp:zeichnungKampagne
+
+:zeichnungKampagne rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinkto;
+    rdfs: label "Kampagne"@de, "Campaign"@en;
+
+    knora-base:subjectClassConstraint :Zeichnung;
+    knora-base:objectClassConstraint :Kampagne;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:zeichnungKampagneValue
+
+:zeichnungKampagneValue rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs:label "Kampagne", "Campaign"@en;
+
+    knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :Zeichnung;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:zeichnungBemerkung
+
+:zeichnungBemerkung rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Bemerkung"@de , "Remark"@en;
+
+    knora-base:subjectClassConstraint :Zeichnung;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:smFundNr
+
+:smFundNr rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Nummer"@de , "Number"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:smNr
+
+:smNr rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "SM Nummer"@de , "SM Number"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:fundNr
+
+:fundNr rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Fund Nummer"@de , "Find Nr"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:smGefaessNr
+
+:smgefaessNr rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Gefaessnummer"@de , "Vessel Number"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+
+##########################################################
+### ubkvp:smMaskenNr
+
+:smMaskenNr rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Maskennummer"@de , "Mask Number"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:smKartonageNr
+
+:smKartonageNr rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Kartonagenummer"@de , "Cardboard number"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:smSiegeltyp
+
+:smSiegeltyp rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Siegeltyp"@de , "Type of seal"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:smGrab
+
+:smGrab rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Grab"@de , "Tomb"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:smUmgebung #TODO change this to Lage link?
+
+:smUmgebung rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Umgebung"@de , "Surrounding"@en;
+
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+########################################################## #TODO ask if these Grab/Umgebung/Areal sequences shouldnt be replaced by a link to Position or Lage
+### ubkvp:smAreal
+
+:smhAreal rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Areal"@de , "Area"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:smRaum
+
+:smRaum rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Raum"@de , "Room"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:smAbhub
+
+:smAbhub rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Abhub"@de , "TODO"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:smSchnitt
+
+:smSchnitt rdf:type owl:ObjectProperty;
+
+   	rdfs:subPropertyOf knora-base:hasValue;
+   	rdfs:label "Schnitt/Quadrant"@de , "Section"@en;
+
+   	knora-base:subjectClassConstraint :SMFund;
+   	knora-base:objectClassConstraint knora-base:TextValue;
+
+   	salsah-gui:guiElement salsah-gui:SimpleText;
+   	salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:smPosition
+
+:smPosition rdf:type owl:ObjectProperty;
+
+ 	rdfs:subPropertyOf knora-base:hasLinkto;
+ 	rdfs: label "Position/Befundliste"@de, "Position/Findslist"@en;
+
+ 	knora-base:subjectClassConstraint :SMFund;
+ 	knora-base:objectClassConstraint :Position;
+
+ 	salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+ ##########################################################
+ ### ubkvp:smPositionValue
+
+:smPositionValue rdf:type owl:ObjectProperty;
+
+ 	rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs:label "Position/Befundliste";
+
+ 	knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :SMFund;
+
+ 	salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:smBefundVG
+
+:smBefundVG rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Befund Vergesellschaftung"@de , "TODO"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:smBefundKommentar
+
+:smBefundKommentar rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Befund Kommentar"@de , "Report comment"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:smMaterial
+
+:smMaterial rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Material"@de , "Material"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:ListValue;
+
+    salsah-gui:guiElement salsah-gui:Pulldown;
+    salsah-gui:guiAttribute "hlist=<TODO insert link to list>".
+
+##########################################################
+### ubkvp:smMaterialZusatz
+
+:smMaterialZusatz rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Material Zusatz"@de , "Material addition"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:ListValue;
+
+    salsah-gui:guiElement salsah-gui:Pulldown;
+    salsah-gui:guiAttribute "hlist=<TODO insert link to list>".
+
+##########################################################
+### ubkvp:smObjekttyp
+
+:smObjekttyp rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Objekttyp"@de , "Object type"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:ListValue;
+
+    salsah-gui:guiElement salsah-gui:Pulldown;
+    salsah-gui:guiAttribute "hlist=<TODO insert link to list>".
+
+##########################################################
+### ubkvp:smObjekttypZusatz
+
+:smObjekttypZusatz rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Objekttyp Zusatz"@de , "Object type addition"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:ListValue;
+
+    salsah-gui:guiElement salsah-gui:Pulldown;
+    salsah-gui:guiAttribute "hlist=<TODO insert link to list>".
+
+##########################################################
+### ubkvp:smDekoration
+
+:smDekoration rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Dekoration"@de , "Decoration"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:ListValue;
+
+    salsah-gui:guiElement salsah-gui:Pulldown;
+    salsah-gui:guiAttribute "hlist=<TODO insert link to list>" .
+
+##########################################################
+### ubkvp:smObjektbeschreibung
+
+:smObjektbeschreibung rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Objektbeschreibung"@de , "Object description"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:smAufschrift
+
+:smAufschrift rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Aufschrift"@de , "Inscription"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:TextValue;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+### ubkvp:smDatierung1
+
+:smDatierung1 rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Datierung 1"@de , "Dating 1"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:ListValue;
+
+    salsah-gui:guiElement salsah-gui:Pulldown;
+    salsah-gui:guiAttribute "hlist=<TODO insert link to list>".
+
+##########################################################
+### ubkvp:smDatierung2
+
+:smDatierung2 rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Datierung 2"@de , "Dating 2"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:ListValue;
+
+    salsah-gui:guiElement salsah-gui:Pulldown;
+    salsah-gui:guiAttribute "hlist=<TODO insert link to list>".
+
+##########################################################
+### ubkvp:smHoehe
+
+:smHoehe rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Höhe (cm)"@de , "Height (cm)"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:smBreite
+
+:smBreite rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Breite(cm)"@de , "Width (cm)"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:smTiefe
+
+:smTiefe rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Tiefe(cm)"@de , "Depth (cm)"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:smDurchm1
+
+:smDurchm1 rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Durchmesser 1 (cm)"@de , "Diameter 1 (cm)"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:smDurchm2
+
+:smDurchm2 rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Durchmesser 2 (cm)"@de , "Diameter 2 (cm)"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:IntValue;
+
+    salsah-gui:guiElement salsah-gui:Spinbox;
+    salsah-gui:guiAttribute "min=TODO" , "max=TODO" .
+
+##########################################################
+### ubkvp:smBrandspuren
+
+:smBrandspuren rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Brandspuren"@de , "Scorch Marks"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:ListValue;
+
+    salsah-gui:guiElement salsah-gui:Pulldown;
+    salsah-gui:guiAttribute "hlist=<TODO insert link to list>".
+
+##########################################################
+### ubkvp:smFeuchtigkeit #TODO is this changeable to binary format?
+
+:smBrandspuren rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasValue;
+    rdfs:label "Feuchtigkeit"@de , "Humidity"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint knora-base:ListValue;
+
+    salsah-gui:guiElement salsah-gui:Pulldown;
+    salsah-gui:guiAttribute "hlist=<TODO insert link to list>".
+
+##########################################################
+### ubkvp:smZeichnung
+
+:smZeichnung rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinkto;
+    rdfs: label "Zeichnung"@de, "Drawing"@en;
+
+    knora-base:subjectClassConstraint :SMFund;
+    knora-base:objectClassConstraint :Zeichnung;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" ,  "maxlength=TODO" .
+
+
+##########################################################
+### ubkvp:smZeichnungValue
+
+:smZeichnungValue rdf:type owl:ObjectProperty;
+
+    rdfs:subPropertyOf knora-base:hasLinktoValue;
+    rdfs: label "Zeichnung"@de, "Drawing"@en;
+
+    knora-base:objectClassConstraint knora-base:LinkValue;
+    knora-base:subjectClassConstraint :SMFund;
+
+    salsah-gui:guiElement salsah-gui:SimpleText;
+    salsah-gui:guiAttribute "size=12" , "maxlength=TODO" .
+
+##########################################################
+#
+# RESOURCES
+#
+##########################################################
+
+##############################################
+
+##############################################
+
+
+##############################################
+### ubkvp:Planum
+
+:Planum rdf:type owl:Class;
+
+    rdfs:subClassOf knora-base:Resource ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumNr;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumPosition;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumPositionValue;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumAbhub;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planum;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumDatum;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumKampagne;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumKampagneValue;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumBeschreibung;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumBemerkung;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumPlan;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #Probably delete this line as it does not mean anything.
+            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumPlanValue;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #Probably delete this line as it does not mean anything.
+            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumBild;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #Probably delete this line as it does not mean anything.
+            salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planumBildValue;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #Probably delete this line as it does not mean anything.
+            salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
+        ] ;
+
+
+    rdfs:label "Planum"@de , "TODO"@en;
+
+    # TODO is this comment necessary? rdfs:comment
+
+##############################################
+### ubkvp:Profil
+
+:Planum rdf:type owl:Class;
+
+    rdfs:subClassOf knora-base:Resource ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilNr;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilPosition;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilPositionValue;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilDatum;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilKampagne;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilKampagneValue;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilBeschreibung;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilLegende;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilBemerkung;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilPlan;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; # TODO Probably delete this line as it does not mean anything.
+            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilPlanValue;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; # TODO Probably delete this line as it does not mean anything.
+            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilBild;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO Probably delete this line as it does not mean anything.
+            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :profilBildValue;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO Probably delete this line as it does not mean anything.
+            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
+        ] ;
+
+
+    rdfs:label "Profil"@de , "Profile"@en;
+
+    # TODO is this comment necessary? rdfs:comment
+
+##############################################
+### ubkvp:Plan
+
+:Plan rdf:type owl:Class;
+
+    rdfs:subClassOf knora-base:StillImageRepresentation ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planName;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planMassstab;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planDatum;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planKampagne;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planKampagneValue;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planDeckblatt;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planPosition;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planPositionValue;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planGrab;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
+            salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planUmgebung;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planAreal;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planRaum;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planSchnitt;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "10"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planBeschreibung;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :planBemerkungn;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "12"^^xsd:nonNegativeInteger
+        ]  ;
+
+    rdfs:label "Plan"@de , "Plan"@en; #TODO check this translation
+
+    # TODO is this comment necessary? rdfs:comment
+
+##############################################
+### ubkvp:Tagebuch
+
+:Plan rdf:type owl:Class;
+
+    rdfs:subClassOf knora-base:Resource ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :tagebuchNr;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :tagebuchDatum;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :tagebuchKampagne;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :tagebuchKampagneValue;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :tagebuchGrab;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :tagebuchUmgebung;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :tagebuchAreal;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :tagebuchRaum;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
+            salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :tagebuchFundlage;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :tagebuchSchnitt;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :tagebuchAbhub;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :tagebuchEintrag;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "10"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :tagebuchZeichnung;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :tagebuchZeichnungValue;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :tagebuchPlan;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "12"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :tagebuchPlanValue;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "12"^^xsd:nonNegativeInteger
+        ] ;
+
+    rdfs:label "Tagebuch"@de , "Diary"@en; #TODO check this translation
+
+    # TODO is this comment necessary? rdfs:comment
+
+##############################################
+### ubkvp:Zeichnung
+
+:Zeichnung rdf:type owl:Class;
+
+    rdfs:subClassOf knora-base:StillImageRepresentation ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :zeichnungNr;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :zeichnungDatum;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :zeichnungKampagne;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :zeichnungKampagneValue;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :zeichnungBemerkung;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+
+        ]  ;
+#TODO this cannot be all information that needs to be stored. There is most probably a Image to be stored? Maybe this can be solved by converting this to StillImageRepresentation
+
+    rdfs:label "Zeichnung"@de , "Drawing"@en; #TODO check this translation
+
+    # TODO is this comment necessary? rdfs:comment
+#TODO add "Analysen/Restaurierung"-class
+
+##############################################
+### ubkvp:Kampagne
+
+:Kampagne rdf:type owl:Class;
+
+    rdfs:subClassOf knora-base:Resource ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :kampagne;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :kampagneStartDatum;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :kampagneEndDatum;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :kampagneTeilnehmer;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :kampagneGrab;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
+            salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :kampagneUmgebung;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :kampagneUmgebungValue;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :kampagneBemerkung;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :kampagneBild;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :kampagneBildValue;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
+
+        ]  ;
+
+    rdfs:label "Kampagne"@de , "Campaign"@en; #TODO check this translation
+
+    # TODO is this comment necessary? rdfs:comment
+
+##############################################
+### ubkvp:Publikation
+
+:Publikation rdf:type owl:Class;
+
+    rdfs:subClassOf knora-base:Resource ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :publikationKurzzitat;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :publikationTitel;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :publikationJahr;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :publikationZeitschrift;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :publikationReihe;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :publikationBand;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :publikationHerausgeber;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :publikationBeitraege;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :publikationLink;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :publikationZusammenfassung;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :publikationInhaltsverzeichnis;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "10"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :publikationStichwort;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
+        ] ;
+
+    rdfs:label "Publikation"@de , "Publication"@en;
+
+    # TODO is this comment necessary? rdfs:comment
+
+##############################################
+### ubkvp:Lage
+
+:Lage rdf:type owl:Class;
+
+    rdfs:subClassOf knora-base:Resource ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :lageNr;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :lageGrab;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
+            salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :lageUmgebung;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :lageAreal;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :lageRaum;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
+            salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :lageSchnitt;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+        ] ;
+
+    rdfs:label "Lage"@de , "Location"@en; #TODO check this translation
+
+    # TODO is this comment necessary? rdfs:comment
+
+##############################################
+### ubkvp:Katalog
+
+:Katalog rdf:type owl:Class;
+
+    rdfs:subClassOf knora-base:Resource ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :katalogNr;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :katalogKurzzitat;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :katalogAbbildung;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :katalog;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :katalogPlan;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :katalogPlanValue;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :katalogSMNr;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :katalogSMNrValue;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :katalogFundNr;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :katalogFundNrValue;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :katalogGefaessNr;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :katalogMaskenNr;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :katalogKartonageNr;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
+        ] ;
+
+    rdfs:label "Abbildungen/Katalog"@de , "Figure/catalogue"@en;
+
+    # TODO is this comment necessary? rdfs:comment
+
+##############################################
+### ubkvp:SMFund
+
+:SMFund rdf:type owl:Class;
+
+    rdfs:subClassOf knora-base:Resource ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smFundNr;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "0"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smNr;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "1"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :fundNr;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "2"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smGefaessNr;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "3"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smMaskenNr;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "4"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smKartonageNr;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "5"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smSiegeltyp;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "6"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smGrab;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "7"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smUmgebung;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "8"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smAreal;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "9"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smRaum;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "10"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smAbhub;
+            owl:Cardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "11"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smSchnitt;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "12"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smPosition;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "13"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smPositionValue;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "13"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smBefundVG;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO this line can probably be deleted.
+            salsah-gui:guiOrder "14"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smBefundKommentar;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "15"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smMaterial;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "16"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smMaterialZusatz;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "17"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smObjekttyp;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "18"^^xsd:nonNegativeInteger
+        ]
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smObjekttypZusatz;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "19"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smDekoration;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "20"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smObjektbeschreibung;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "21"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smAufschrift;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "22"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smDatierung1;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "23"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smDatierung2;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "24"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smHoehe;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "25"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smBreite;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "26"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smTiefe;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "27"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smDurchm1;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "28"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smDurchm2;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "29"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smBrandspuren;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "30"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smFeuchtigkeit;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger;
+            salsah-gui:guiOrder "31"^^xsd:nonNegativeInteger
+
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smZeichnung;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "32"^^xsd:nonNegativeInteger
+        ] ,
+
+        [
+            rdf:type owl:Restriction;
+            owl:onProperty :smZeichnungValue;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger; #TODO probably delete this line, as it does not mean anything
+            salsah-gui:guiOrder "32"^^xsd:nonNegativeInteger
+
+        ] ;
+
+    rdfs:label "SM/Fund"@de , "Study Material/Find"@en;
+
+    # TODO is this comment necessary? rdfs:comment
