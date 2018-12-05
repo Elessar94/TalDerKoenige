@@ -6,12 +6,14 @@ import argparse
 import urllib
 import pprint
 
+
 # TODO: recheck all the documentation of this file
 
 class KnoraError(Exception):
     """Handles errors happening in this file"""
     # TODO: Implement this
     pass
+
 
 class Knora:
     """
@@ -107,7 +109,7 @@ class Knora:
         print("---RESULT OF PROJECT CREATION----")
         pprint.pprint(res)
         print("==================================")
-        return res["project"]["id"]
+        return res["project"]["id"] #TODO this return might be updated as similar returns are dicts
 
     def get_existing_ontologies(self):
         """
@@ -151,7 +153,7 @@ class Knora:
         for onto in result['@graph']:
             if 'knora-api:lastModificationDate' in onto:
                 all_ontos.__setitem__(onto['@id'], onto['knora-api:lastModificationDate'])
-            else :
+            else:
                 all_ontos.__setitem__(onto['@id'], None)
 
         return all_ontos[onto_iri]
@@ -160,6 +162,7 @@ class Knora:
                         onto_name: str,
                         project_iri: str,
                         label: str) -> Dict[str, str]:
+
         """
         Create a new ontology
 
@@ -168,7 +171,7 @@ class Knora:
         :param label: A label property for this ontology
         :return: Dict with "onto_iri" and "last_onto_date"
         """
-        
+
         ontology = {
             "knora-api:ontologyName": onto_name,
             "knora-api:attachedToProject": {
@@ -194,16 +197,16 @@ class Knora:
         print("---RESULT OF ONTOLOGY CREATION----")
         pprint.pprint(res)
         print("==================================")
-        #TODO: return also ontology name
+        # TODO: return also ontology name
         return {"onto_iri": res['@id'], "last_onto_date": res['knora-api:lastModificationDate']}
 
-    def delete_ontology(self, onto_iri: str, last_onto_date = None):
+    def delete_ontology(self, onto_iri: str, last_onto_date=None):
         """
         A method to delete an ontology from /v2/ontologies 
         :param onto_iri: The ontology to delete
         :param last_onto_date: the lastModificationDate of an ontology. None by default
         :return: 
-        """"" #TODO: add return documentation
+        """""  # TODO: add return documentation
         url = self.server + "/v2/ontologies/" + urllib.parse.quote_plus(onto_iri)
         pprint.pprint(url)
         req = requests.delete(url,
@@ -322,7 +325,6 @@ class Knora:
         # using map and iterable to get the proper format
         #
         labels = list(map(lambda p: {"@language": p[0], "@value": p[1]}, labels.items()))
-
 
         if not comments:
             comments = {"en": "none"}
@@ -539,7 +541,6 @@ password = 'test' if args.password is None else args.password
 start = args.start
 nrows = -1 if args.nrows is None else args.nrows
 
-
 con = Knora(args.server, user, password)
 
 proj_iri = con.create_project(
@@ -550,12 +551,10 @@ proj_iri = con.create_project(
     keywords=("archaeology", "excavation")
 )
 
-
 node1 = con.create_list_node(proj_iri, {"en": "ROOT"}, {"en": "This is the root node"}, "RootNode")
 subnode1 = con.create_list_node(proj_iri, {"en": "SUB1"}, {"en": "This is the sub node 1"}, "SubNode1", node1)
 subnode2 = con.create_list_node(proj_iri, {"en": "SUB2"}, {"en": "This is the sub node 2"}, "SubNode2", node1)
 subnode3 = con.create_list_node(proj_iri, {"en": "SUB3"}, {"en": "This is the sub node 3"}, "SubNode3", node1)
-
 
 result = con.create_ontology(
     onto_name="tdk",
@@ -593,18 +592,15 @@ result = con.create_property(
 last_onto_date = result["last_onto_date"]
 prop_iri = result["prop_iri"]
 
-result=con.create_cardinality(
-            onto_iri=onto_iri,
-            onto_name="tdk",
-            last_onto_date=last_onto_date,
-            class_iri="tdk:SMFund",
-            prop_iri=prop_iri,
-            occurrence="0-1"
+result = con.create_cardinality(
+    onto_iri=onto_iri,
+    onto_name="tdk",
+    last_onto_date=last_onto_date,
+    class_iri="tdk:SMFund",
+    prop_iri=prop_iri,
+    occurrence="0-1"
 )
 last_onto_date = result["last_onto_date"]
 
 last_onto_date = con.get_ontology_lastmoddate(onto_iri)
 con.delete_ontology(onto_iri, last_onto_date)
-
-
-

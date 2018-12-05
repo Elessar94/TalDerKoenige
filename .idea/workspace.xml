@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97b22e0b-8ccc-4a9e-9238-39b557b42bac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Creator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ubkvp-onto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Checker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/Parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser_example" beforeDir="false" afterPath="$PROJECT_DIR$/parser_example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Creator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Creator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tdk_create_onto.py" beforeDir="false" afterPath="$PROJECT_DIR$/tdk_create_onto.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,30 +60,31 @@
     <session id="489673452">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="6" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.open.time.4" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="example dict" value="1" />
           <entry key="parser_example" value="4" />
-          <entry key="py" value="12" />
+          <entry key="py" value="13" />
           <entry key="txt" value="1" />
           <entry key="ubkvp-onto" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="12" />
+          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="Python" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="parser_example" value="1137" />
-          <entry key="py" value="8587" />
+          <entry key="py" value="11556" />
           <entry key="txt" value="223" />
           <entry key="ubkvp-onto" value="2673" />
         </counts>
@@ -92,58 +92,45 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="4033" />
-          <entry key="Python" value="8587" />
+          <entry key="Python" value="11556" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.44896933">
+    <splitter split-orientation="horizontal" split-proportion="0.45239294">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Parser.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="376">
-                  <caret line="117" column="39" selection-start-line="117" selection-start-column="26" selection-end-line="117" selection-end-column="39" />
+                <state relative-caret-position="3434">
+                  <caret line="208" selection-start-line="208" selection-end-line="208" />
                   <folding>
-                    <marker date="1543846706774" expanded="true" signature="392:397" ph="..." />
-                    <marker date="1543846706774" expanded="true" signature="1100:1162" ph="..." />
-                    <marker date="1543846706774" expanded="true" signature="4557:5342" ph="..." />
+                    <marker date="1544009372037" expanded="true" signature="392:397" ph="..." />
+                    <marker date="1544009372037" expanded="true" signature="1100:1162" ph="..." />
+                    <marker date="1544009372037" expanded="true" signature="4557:5342" ph="..." />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/example dict">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1309">
+                  <caret line="77" selection-start-line="77" selection-end-line="77" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Creator.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="816">
-                  <caret line="48" column="75" lean-forward="true" selection-start-line="48" selection-start-column="75" selection-end-line="48" selection-end-column="75" />
-                  <folding>
-                    <element signature="e#0#13#0" expanded="true" />
-                    <marker date="1543868835234" expanded="true" signature="171:177" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test.txt">
-              <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="17">
-                  <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/tdk_create_onto.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-4250">
-                  <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+                  <caret line="1" selection-start-line="1" selection-end-line="1" />
                   <folding>
-                    <element signature="e#0#51#0" expanded="true" />
+                    <marker date="1544009349019" expanded="true" signature="292:298" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -161,14 +148,29 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tdk_create_onto.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2608">
-                  <caret line="570" column="13" selection-start-line="570" selection-start-column="13" selection-end-line="570" selection-end-column="13" />
+                <state relative-caret-position="-1989">
+                  <caret selection-end-column="51" />
                   <folding>
                     <element signature="e#0#51#0" expanded="true" />
+                    <marker date="1544007629352" expanded="true" signature="3525:3534" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Checker.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="204">
+                  <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="42" />
+                  <folding>
+                    <element signature="e#0#10#0" expanded="true" />
+                    <marker date="1544010524511" expanded="true" signature="76:77" ph="..." />
+                    <marker date="1544010524511" expanded="true" signature="92:97" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -201,6 +203,7 @@
       <find>prin</find>
       <find>Super classes</find>
       <find>Super C</find>
+      <find>Dict</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -209,13 +212,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tdk_create_onto.py" />
         <option value="$PROJECT_DIR$/HelloWorld.py" />
         <option value="$PROJECT_DIR$/test.txt" />
         <option value="$PROJECT_DIR$/parser_example" />
-        <option value="$PROJECT_DIR$/Parser.py" />
         <option value="$PROJECT_DIR$/ubkvp-onto" />
+        <option value="$PROJECT_DIR$/tdk_create_onto.py" />
         <option value="$PROJECT_DIR$/Creator.py" />
+        <option value="$PROJECT_DIR$/Parser.py" />
+        <option value="$PROJECT_DIR$/example dict" />
+        <option value="$PROJECT_DIR$/Checker.py" />
       </list>
     </option>
   </component>
@@ -226,8 +231,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="300" />
-    <option name="y" value="-15" />
+    <option name="x" value="163" />
+    <option name="y" value="-19" />
     <option name="width" value="1208" />
     <option name="height" value="888" />
   </component>
@@ -236,23 +241,23 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="TalderKoenige" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="TalDerKoenige" type="b2602c69:ProjectViewProjectNode" />
               <item name="TalDerKoenige" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="TalderKoenige" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
             </path>
           </expand>
           <select />
@@ -331,7 +336,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20945945" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21104929" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -396,31 +401,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tdk_create_onto.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4250">
-          <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="117" column="39" selection-start-line="117" selection-start-column="26" selection-end-line="117" selection-end-column="39" />
+        <state relative-caret-position="3434">
+          <caret line="208" selection-start-line="208" selection-end-line="208" />
           <folding>
-            <marker date="1543846706774" expanded="true" signature="392:397" ph="..." />
-            <marker date="1543846706774" expanded="true" signature="1100:1162" ph="..." />
-            <marker date="1543846706774" expanded="true" signature="4557:5342" ph="..." />
+            <marker date="1544009372037" expanded="true" signature="392:397" ph="..." />
+            <marker date="1544009372037" expanded="true" signature="1100:1162" ph="..." />
+            <marker date="1544009372037" expanded="true" signature="4557:5342" ph="..." />
           </folding>
         </state>
       </provider>
@@ -432,13 +420,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tdk_create_onto.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1989">
+          <caret selection-end-column="51" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+            <marker date="1544007629352" expanded="true" signature="3525:3534" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Creator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="75" lean-forward="true" selection-start-line="48" selection-start-column="75" selection-end-line="48" selection-end-column="75" />
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <marker date="1543868835234" expanded="true" signature="171:177" ph="..." />
+            <marker date="1544009349019" expanded="true" signature="292:298" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example dict">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1309">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Checker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1544010524511" expanded="true" signature="76:77" ph="..." />
+            <marker date="1544010524511" expanded="true" signature="92:97" ph="..." />
           </folding>
         </state>
       </provider>
