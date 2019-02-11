@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="97b22e0b-8ccc-4a9e-9238-39b557b42bac" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ubkvp-onto" beforeDir="false" afterPath="$PROJECT_DIR$/ubkvp-onto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ubkvp_onto_status.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ubkvp_onto_status.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Checker.py" beforeDir="false" afterPath="$PROJECT_DIR$/Checker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Creator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Creator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/Parser.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,33 +60,33 @@
     <session id="489673452">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="9" />
+          <entry key="project.open.time.4" value="10" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="example dict" value="1" />
           <entry key="parser_example" value="5" />
-          <entry key="py" value="13" />
+          <entry key="py" value="15" />
           <entry key="txt" value="6" />
-          <entry key="ubkvp-onto" value="1" />
+          <entry key="ubkvp-onto" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Python" value="13" />
+          <entry key="PLAIN_TEXT" value="14" />
+          <entry key="Python" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="parser_example" value="1137" />
-          <entry key="py" value="11556" />
+          <entry key="py" value="13527" />
           <entry key="txt" value="235" />
           <entry key="ubkvp-onto" value="6428" />
         </counts>
@@ -93,73 +94,108 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="7800" />
-          <entry key="Python" value="11556" />
+          <entry key="Python" value="13527" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.3956323">
+    <splitter split-orientation="horizontal" split-proportion="0.5895354">
       <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Parser.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1955">
-                  <caret line="115" column="37" selection-start-line="115" selection-start-column="37" selection-end-line="115" selection-end-column="37" />
-                  <folding>
-                    <marker date="1544009372037" expanded="true" signature="392:397" ph="..." />
-                    <marker date="1544009372037" expanded="true" signature="1100:1162" ph="..." />
-                    <marker date="1544009372037" expanded="true" signature="4557:5342" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/parser_example">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="561">
-                  <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/example dict">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Creator.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" selection-start-line="1" selection-end-line="1" />
-                  <folding>
-                    <marker date="1544009349019" expanded="true" signature="292:298" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/ubkvp-onto">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="393">
-                  <caret line="2346" column="23" lean-forward="true" selection-start-line="2346" selection-start-column="23" selection-end-line="2346" selection-end-column="23" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
+        <splitter split-orientation="horizontal" split-proportion="0.44991922">
+          <split-first>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/Parser.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="540">
+                      <caret line="84" column="25" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
+                      <folding>
+                        <marker date="1549891892567" expanded="true" signature="392:397" ph="..." />
+                        <marker date="1549891892567" expanded="true" signature="1100:1162" ph="..." />
+                        <marker date="1549891892567" expanded="true" signature="2781:3110" ph="..." />
+                        <marker date="1549891892567" expanded="true" signature="4925:5710" ph="..." />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/parser_example">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="407">
+                      <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/example dict">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="187">
+                      <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/Creator.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="248">
+                      <caret line="27" selection-start-line="26" selection-end-line="28" />
+                      <folding>
+                        <element signature="e#0#13#0" expanded="true" />
+                        <marker date="1549891278958" expanded="true" signature="200:206" ph="..." />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/Checker.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="323">
+                      <caret line="23" selection-start-line="22" selection-end-line="23" />
+                      <folding>
+                        <element signature="e#0#10#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/Checker.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="693">
+                      <caret line="74" column="91" selection-start-line="74" selection-start-column="91" selection-end-line="74" selection-end-column="91" />
+                      <folding>
+                        <element signature="e#0#10#0" expanded="true" />
+                        <marker date="1549891137741" expanded="true" signature="4090:4095" ph="..." />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/ubkvp-onto">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="5593">
+                      <caret line="365" column="31" selection-start-line="365" selection-start-column="22" selection-end-line="365" selection-end-column="31" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ubkvp_onto_status.txt">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="255">
@@ -168,11 +204,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tdk_create_onto.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret selection-end-line="6" selection-end-column="13" />
+                <state relative-caret-position="1139">
+                  <caret line="67" column="17" lean-forward="true" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
                   <folding>
                     <element signature="e#0#51#0" expanded="true" />
                     <marker date="1544007629352" expanded="true" signature="3525:3534" ph="..." />
@@ -194,7 +230,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pprint</find>
       <find>KNora</find>
       <find>onto_name</find>
       <find>1010</find>
@@ -216,6 +251,8 @@
       <find>ubkvp:Plan</find>
       <find>ubkvp:Tagebuch</find>
       <find>ubkvp:Zeichnung</find>
+      <find>pprint</find>
+      <find>bildAutor</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -228,12 +265,12 @@
         <option value="$PROJECT_DIR$/test.txt" />
         <option value="$PROJECT_DIR$/parser_example" />
         <option value="$PROJECT_DIR$/tdk_create_onto.py" />
-        <option value="$PROJECT_DIR$/Creator.py" />
-        <option value="$PROJECT_DIR$/Parser.py" />
         <option value="$PROJECT_DIR$/example dict" />
-        <option value="$PROJECT_DIR$/Checker.py" />
         <option value="$PROJECT_DIR$/ubkvp-onto" />
         <option value="$PROJECT_DIR$/ubkvp_onto_status.txt" />
+        <option value="$PROJECT_DIR$/Checker.py" />
+        <option value="$PROJECT_DIR$/Creator.py" />
+        <option value="$PROJECT_DIR$/Parser.py" />
       </list>
     </option>
   </component>
@@ -244,8 +281,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1198" />
-    <option name="y" value="781" />
+    <option name="x" value="-1496" />
+    <option name="y" value="-8" />
     <option name="width" value="1208" />
     <option name="height" value="888" />
   </component>
@@ -254,23 +291,23 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="TalDerKoenige" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TalDerKoenige" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
             <path>
               <item name="TalderKoenige" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TalDerKoenige" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TalDerKoenige" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -347,9 +384,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <frame x="-2568" y="-8" width="2576" height="1416" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21740858" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11883943" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -414,32 +451,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Checker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1955">
-          <caret line="115" column="37" selection-start-line="115" selection-start-column="37" selection-end-line="115" selection-end-column="37" />
-          <folding>
-            <marker date="1544009372037" expanded="true" signature="392:397" ph="..." />
-            <marker date="1544009372037" expanded="true" signature="1100:1162" ph="..." />
-            <marker date="1544009372037" expanded="true" signature="4557:5342" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parser_example">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example dict">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -447,23 +458,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ubkvp-onto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5593">
+          <caret line="365" column="31" selection-start-line="365" selection-start-column="22" selection-end-line="365" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Creator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="248">
+          <caret line="27" selection-start-line="26" selection-end-line="28" />
           <folding>
-            <marker date="1544009349019" expanded="true" signature="292:298" ph="..." />
+            <element signature="e#0#13#0" expanded="true" />
+            <marker date="1549891278958" expanded="true" signature="200:206" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tdk_create_onto.py">
+    <entry file="file://$PROJECT_DIR$/Checker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="323">
+          <caret line="23" selection-start-line="22" selection-end-line="23" />
           <folding>
-            <element signature="e#0#51#0" expanded="true" />
-            <marker date="1544007629352" expanded="true" signature="3525:3534" ph="..." />
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parser_example">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="84" column="25" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
+          <folding>
+            <marker date="1549891892567" expanded="true" signature="392:397" ph="..." />
+            <marker date="1549891892567" expanded="true" signature="1100:1162" ph="..." />
+            <marker date="1549891892567" expanded="true" signature="2781:3110" ph="..." />
+            <marker date="1549891892567" expanded="true" signature="4925:5710" ph="..." />
           </folding>
         </state>
       </provider>
@@ -475,10 +513,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ubkvp-onto">
+    <entry file="file://$PROJECT_DIR$/tdk_create_onto.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="2346" column="23" lean-forward="true" selection-start-line="2346" selection-start-column="23" selection-end-line="2346" selection-end-column="23" />
+        <state relative-caret-position="1139">
+          <caret line="67" column="17" lean-forward="true" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+            <marker date="1544007629352" expanded="true" signature="3525:3534" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

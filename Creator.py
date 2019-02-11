@@ -4,7 +4,6 @@ import Checker
 import pprint
 
 
-# TODO in checking class: catch KeyError exceptions by setting everything not there to null
 class Creator:
     project_iri = ""
     onto_iri = ""
