@@ -78,6 +78,18 @@ class Parser:
             i=i+1
         return list
 
+    def read_multiple_choice(self, start, end):
+        i = start + 1
+        list = {}
+        list['Name'] = ""
+        list['Data'] = []
+        while i < end:
+            string = self.pretty_line(self.data[i], "\n")
+            if string != "":
+                list.append(string)
+            self.already_read.append(i)
+            i = i + 1
+        return list
         #TODO maybe write Keywords in ALL CAPS to avoid usage of users.
     def read_ontology(self,start,end):
         ontology_data = {}
@@ -178,6 +190,7 @@ class Parser:
     def read_project(self):
         lines = self.data
         i = -1
+        self.project_data["Lists"]={}
         while i<len(self.data)-1 :
             i = i + 1
             if i in self.already_read:
@@ -198,11 +211,12 @@ class Parser:
                 self.project_data["Keywords"] = self.read_normal_list(lines.index(line),self.find_end(lines.index(line)))
             if line.find("Logo")!=-1:
                 self.project_data["Logo"] = self.read_normal_list(lines.index(line),self.find_end(lines.index(line)))
-
+            if line.find("List")!=-1:
+                self.read_multiple_choice(lines.index(line), self.find_end(lines.index(line)))
             self.already_read.append(i)
 
         return self.project_data
 
 
-parser = Parser("ubkvp-onto")
-pprint.pprint(parser.read_project())
+#parser = Parser("ubkvp-onto")
+#pprint.pprint(parser.read_project())
