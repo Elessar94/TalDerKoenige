@@ -551,10 +551,10 @@ proj_iri = con.create_project(
     keywords=("archaeology", "excavation")
 )
 
-node1 = con.create_list_node(proj_iri, {"en": "ROOT"}, {"en": "This is the root node"}, "RootNode")
+node1 = con.create_lsist_node(proj_iri, {"en": "ROOT"}, {"en": "This is the root node"}, "RootNode")
 subnode1 = con.create_list_node(proj_iri, {"en": "SUB1"}, {"en": "This is the sub node 1"}, "SubNode1", node1)
 subnode2 = con.create_list_node(proj_iri, {"en": "SUB2"}, {"en": "This is the sub node 2"}, "SubNode2", node1)
-subnode3 = con.create_list_node(proj_iri, {"en": "SUB3"}, {"en": "This is the sub node 3"}, "SubNode3", node1)
+subnode3 = con.create_list_node(proj_iri, {"en": "SUB3"}, {"en": "This is the ub node 3"}, "SubNode3", node1)
 
 result = con.create_ontology(
     onto_name="tdk",

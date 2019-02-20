@@ -82,11 +82,13 @@ class Parser:
         i = start + 1
         list = {}
         list['Name'] = ""
-        list['Data'] = []
+        list['Nodes'] = []
         while i < end:
-            string = self.pretty_line(self.data[i], "\n")
-            if string != "":
-                list.append(string)
+            string = self.data[i]
+            if string.find("Name")!=-1:
+                list["Name"]= self.pretty_line(string, "Name")
+            if string.find("Nodes")!=-1:
+                list['Nodes']=self.read_normal_list(i,self.find_end(i))
             self.already_read.append(i)
             i = i + 1
         return list
@@ -190,7 +192,7 @@ class Parser:
     def read_project(self):
         lines = self.data
         i = -1
-        self.project_data["Lists"]={}
+        self.project_data["Lists"]=[]
         while i<len(self.data)-1 :
             i = i + 1
             if i in self.already_read:
@@ -212,11 +214,11 @@ class Parser:
             if line.find("Logo")!=-1:
                 self.project_data["Logo"] = self.read_normal_list(lines.index(line),self.find_end(lines.index(line)))
             if line.find("List")!=-1:
-                self.read_multiple_choice(lines.index(line), self.find_end(lines.index(line)))
+                print("Reached Loop")
+                self.project_data['Lists'].append(self.read_multiple_choice(i,self.find_end(i)))
             self.already_read.append(i)
 
         return self.project_data
 
-
-#parser = Parser("ubkvp-onto")
-#pprint.pprint(parser.read_project())
+parser = Parser("ubkvp-onto")
+pprint.pprint(parser.read_project())

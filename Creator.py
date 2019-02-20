@@ -10,10 +10,11 @@ class Creator:
     onto_lastmoddate = ""
     resources_iri = {}
     properties_iri = {}
+    lists_iri = {}
 
     def __init__(self, file, server, user, password):
-        parser = Parser.Parser(file)
-        self.data = parser.read_project()
+        self.parser = Parser.Parser(file)
+        self.data = self.parser.read_project()
         checker = Checker.Checker(self.data)
         self.data = checker.check()
         self.interface = tdk_create_onto.Knora(server, user, password)
@@ -40,11 +41,21 @@ class Creator:
                 resource['Comments'])
             self.resources_iri[resource['Name']] = returns["class_iri"]
             self.onto_lastmoddate = returns["last_onto_date"]
+    def create_lists(self):
+        for list in self.data['Lists']:
+            self.lists_iri[list['Name']]=self.interface.create_list_node(self.project_iri, {"@de",list['Nodes'][0]},None,list['Nodes'][0],None)
+        for node in list['Nodes']:
+            if not node.equals(list['Nodes'][0]):
+                self.interface.create_list_node(self.project_iri,{"@de",node},None,node,list['Nodes'][0])
+        return
 
     def create_properties(self):
         for resource in self.data['Ontology']['Resources']:
             self.properties_iri[resource['Name']] = {}
             for property in resource['Properties']:
+                if (property['GUI Element'].find("List")!=-1):
+                    name = self.parser.pretty_line(property['GUI Element'], "Name")
+                    property['GUI Element'] = self.lists_iri[name]
                 returns = self.interface.create_property(self.onto_iri, self.data['Ontology']['Name'],
                                                                          self.onto_lastmoddate, property['Name'],
                                                                          property['Super Properties'],
@@ -71,6 +82,7 @@ class Creator:
         self.create_project()
         self.create_ontology()
         self.create_resources()
+        self.create_lists()
         self.create_properties()
         self.link_properties_to_res()
 

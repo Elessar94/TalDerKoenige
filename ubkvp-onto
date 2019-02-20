@@ -11,7 +11,26 @@
     }
     Logo: {
     }
-    //TODO: add Lists when implemented in Parser
+    List: {
+        Name : Nummern
+        Nodes: {
+            1
+            2
+            3
+            4
+            5
+            6
+        }
+    }
+    List: {
+        Name: Materialtypen
+        Nodes: {
+            Holz
+            Metall
+            Kryptonit
+        }
+    }
+
     Ontology: {
         Name: tdk_onto
         Label: Die Tal der Koenige-Ontologie
@@ -21,7 +40,7 @@
                 knora-base:Resource
             }
             Labels: {
-                Language: @de, Value: Persoenlichkeit //TODO entries like this are about to change
+                Language: @de, Value: Persoenlichkeit
                 Language: @en, Value: Personage
             }
             Property: {
@@ -57,11 +76,11 @@
                     size=12
                     maxlength=30
                 }
-            } //TODO ask about GUI Order
+            }
             Property: {
                 Name: persoenlichkeitSMFund //We use this to represent the SM/Find Nr which should be displayed in the GUI
                 Super Properties: {
-                    knora-base:hasLinkto //TODO ask LURO about hasLinktoValue and whether we need to implement this.
+                    knora-base:hasLinkto
                 }
                 Labels: {
                     Language: @de, Value: SM/Fund Nr
@@ -159,7 +178,7 @@
                 knora-base:StillImageRepresentation
             }
             Labels: {
-                Language: @de, Value: Bild //TODO entries like this are about to change
+                Language: @de, Value: Bild
                 Language: @en, Value: Image
             }
             Property: {
@@ -840,7 +859,7 @@
             Property: {
                 Name: katalogSMFund //We use this to represent the SM/Find Nr which should be displayed in the GUI
                 Super Properties: {
-                    knora-base:hasLinkto //TODO ask LURO about hasLinktoValue and whether we need to implement this.
+                    knora-base:hasLinkto
                 }
                 Labels: {
                     Language: @de, Value: SM/Fund Nr
