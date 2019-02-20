@@ -1,8 +1,9 @@
 import sys
 from typing import List, Set, Dict, Tuple, Optional
 import pprint
-from Parser import Parser
+from Parser import Parserd
 
+#TODO include Lists
 class Checker:
 
     def __init__(self, dict):
