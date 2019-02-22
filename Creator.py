@@ -53,9 +53,9 @@ class Creator:
         for resource in self.data['Ontology']['Resources']:
             self.properties_iri[resource['Name']] = {}
             for property in resource['Properties']:
-                if (property['GUI Element'].find("List")!=-1):
+                if (property['GUI Attributes'].find("List")!=-1):
                     name = self.parser.pretty_line(property['GUI Element'], "Name")
-                    property['GUI Element'] = self.lists_iri[name]
+                    property['GUI Attributes'] = '"hlist=<'+self.lists_iri[name]+'>"'
                 returns = self.interface.create_property(self.onto_iri, self.data['Ontology']['Name'],
                                                                          self.onto_lastmoddate, property['Name'],
                                                                          property['Super Properties'],

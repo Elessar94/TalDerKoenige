@@ -12,22 +12,188 @@
     Logo: {
     }
     List: {
-        Name : Nummern
+        Name : Autor
         Nodes: {
-            1
-            2
-            3
-            4
-            5
-            6
+            UBKVP
+            M. Kačičnik
         }
     }
     List: {
-        Name: Materialtypen
+        Name: Material
         Nodes: {
+            Anthropologisch
+            Zoologisch
+            Botanisch
+            Geologisch
+            Komposit
+        }
+    }
+    List: {
+        Name: Material Zusatz
+        Nodes: {
+            Fayence
+            Wachs
+            Dung
+            Glas
+            Kartonage
+            Keramik
+            Textil
+            Zahn
+            Knochen
+            Haare
+            Granit
+            Kalkstein
+            ägyptischer Alabaster
+            Basalt
+            Flint
+            Schiefer
+            Unbekannt
+            Obsidian
+            Bronze
+            Muna
             Holz
-            Metall
-            Kryptonit
+            Samen
+            Nilton
+            Gips
+            Bitumen
+            Nilschlamm
+            Paste
+            Fritte
+            Grauwacke
+            Quarzit
+            Serpentin
+            Feldspat
+        }
+    }
+    List: {
+        Name: Objekttyp
+        Nodes: {
+            Sarg
+            Fragment
+            Gefässverschluss
+            Gefässaufschrift
+            Ostrakon
+            Siegel
+            Stempel
+            Figur
+            Möbel
+            Mumie
+            Werkzeug
+            Textilien
+            Leder
+            Modern
+            Gefäss
+            Schmuck
+            Kanope
+            Nagel
+            Opferplatte
+            Stele
+            Modell
+            Einlage
+            Label
+            Abdruck
+            Maske
+        }
+    }
+    List: {
+        Name: Objekttyp Zusatz
+        Nodes: {
+            Fragment
+            Mumienbinden
+            Natronsack
+            Einlage
+            Siegelbdruck
+            Amulett
+            Uschebti
+            Statuette
+            Perle
+            Skarabäus
+            Deckel
+            Ring
+            Armreif
+            Kohlstab
+            Aufsteckelement
+        }
+    }
+    List: {
+        Name: Dekoration
+        Nodes: {
+            Bemalt
+            Beschriftet
+            Abdruck
+            Relief
+            Einlagen
+        }
+    }
+    List: {
+        Name: Feuchtigkeit
+        Nodes: {
+            Ja
+            Nein
+        }
+    }
+    List: {
+        Name: Brandspuren
+        Nodes: {
+            Verfärbung
+            Verkohlt
+            Verrusst
+            Geschmolzen
+            Verbrannt
+        }
+    }
+    List: {
+        Name: Datierung1
+        Nodes: {
+            Vorgeschichte
+            Prädynastische Zeit
+            Frühdynastische Zeit
+            Altes Reich
+            Erste Zwischenzeit
+            Mittleres Reich
+            Zweite Zwischenzeit
+            Neues Reich
+            Dritte Zwischenzeit
+            Spätzeit
+            Griechisch-römische Zeit
+            Modern
+        }
+    }
+    List: {
+        Name: Datierung2
+        Nodes: {
+            0. Dynastie
+            1. Dynastie
+            2. Dynastie
+            3. Dynastie
+            4. Dynastie
+            5. Dynastie
+            6. Dynastie
+            7. Dynastie
+            8. Dynastie
+            9. Dynastie
+            10. Dynastie
+            11. Dynastie
+            12. Dynastie
+            13. Dynastie
+            14. Dynastie
+            15. Dynastie
+            16. Dynastie
+            17. Dynastie
+            18. Dynastie
+            19. Dynastie
+            20. Dynastie
+            21. Dynastie
+            22. Dynastie
+            23. Dynastie
+            24. Dynastie
+            25. Dynastie
+            26. Dynastie
+            27. Dynastie
+            28. Dynastie
+            29. Dynastie
+            30. Dynastie
+            31. Dynastie
         }
     }
 
@@ -156,7 +322,8 @@
                 }
                 Object: knora-base:ListValue
                 Cardinality: 1-n
-                //TODO add GUI ELEMENT AND GUI ATTRIBUTES (LIST)
+                GUI Element: salsah-gui:Pulldown
+                GUI Attributes: List: Datierung1
             }
             Property: {
                 Name: persoenlichkeitDatierung2
@@ -169,7 +336,8 @@
                 }
                 Object: knora-base:ListValue
                 Cardinality: 1-n
-                //TODO add GUI ELEMENT AND GUI ATTRIBUTES (LIST)
+                GUI Element: salsah-gui:Pulldown
+                GUI Attributes: List: Datierung2
             }
         }
         Resource: {
@@ -392,7 +560,8 @@
                 }
                 Object: knora-base:ListValue
                 Cardinality: 0-1
-                //TODO add GUI ELEMENT AND GUI ATTRIBUTES (LIST)
+                GUI Element: salsah-gui:Pulldown
+                GUI Attributes: LIST: Autor
             }
         }
         Resource: {
@@ -2010,7 +2179,7 @@
                     Language: @en, Value: Find Number
                 }
                 Object: knora-base:IntValue
-                Cardinality: 0-1    //TODO maybe check that Cardinality of smNr + find Nr = 1
+                Cardinality: 0-1
                 GUI Element: salsah-gui:SimpleText
                 GUI Attributes: {
                     size=12
@@ -2026,7 +2195,7 @@
                     Language: @en, Value: Vessel Number
                 }
                 Object: knora-base:IntValue
-                Cardinality: 0-1    //TODO maybe check that Cardinality of smNr + find Nr = 1
+                Cardinality: 0-1
                 GUI Element: salsah-gui:SimpleText
                 GUI Attributes: {
                     size=12
@@ -2042,7 +2211,7 @@
                     Language: @en, Value: Mask Number
                 }
                 Object: knora-base:IntValue
-                Cardinality: 0-1    //TODO maybe check that Cardinality of smNr + find Nr = 1
+                Cardinality: 0-1
                 GUI Element: salsah-gui:SimpleText
                 GUI Attributes: {
                     size=12
@@ -2058,7 +2227,7 @@
                     Language: @en, Value: Cardboard Number
                 }
                 Object: knora-base:IntValue
-                Cardinality: 0-1    //TODO maybe check that Cardinality of smNr + find Nr = 1
+                Cardinality: 0-1
                 GUI Element: salsah-gui:SimpleText
                 GUI Attributes: {
                     size=12
@@ -2074,7 +2243,7 @@
                     Language: @en, Value: Type of seal
                 }
                 Object: knora-base:IntValue
-                Cardinality: 0-1    //TODO maybe check that Cardinality of smNr + find Nr = 1
+                Cardinality: 0-1
                 GUI Element: salsah-gui:SimpleText
                 GUI Attributes: {
                     size=12
@@ -2171,7 +2340,8 @@
                 }
                 Object: knora-base:ListValue
                 Cardinality: 1-n
-                //TODO add GUI ELEMENT AND GUI ATTRIBUTES (LIST)
+                GUI Element: salsah-gui:Pulldown
+                GUI Attributes: List: Material
             }
             Property: {
                 Name: smMaterialZusatz
@@ -2184,7 +2354,8 @@
                 }
                 Object: knora-base:ListValue
                 Cardinality: 0-n
-                //TODO add GUI ELEMENT AND GUI ATTRIBUTES (LIST)
+                GUI Element: salsah-gui:Pulldown
+                GUI Attributes: List: Material Zusatz
             }
             Property: {
                 Name: smObjekttyp
@@ -2197,7 +2368,8 @@
                 }
                 Object: knora-base:ListValue
                 Cardinality: 1-n
-                //TODO add GUI ELEMENT AND GUI ATTRIBUTES (LIST)
+                GUI Element: salsah-gui:Pulldown
+                GUI Attributes: List: Objekttyp
             }
             Property: {
                 Name: smObjekttypZusatz
@@ -2210,7 +2382,8 @@
                 }
                 Object: knora-base:ListValue
                 Cardinality: 0-n
-                //TODO add GUI ELEMENT AND GUI ATTRIBUTES (LIST)
+                GUI Element: salsah-gui:Pulldown
+                GUI Attributes: List: Objekttyp Zusatz
             }
             Property: {
                 Name: smDekoration
@@ -2223,7 +2396,8 @@
                 }
                 Object: knora-base:ListValue
                 Cardinality: 0-n
-                //TODO add GUI ELEMENT AND GUI ATTRIBUTES (LIST)
+                GUI Element: salsah-gui:Pulldown
+                GUI Attributes: List: Dekoration
             }
             Property: {
                 Name: smObjektbeschreibung
@@ -2268,7 +2442,8 @@
                 }
                 Object: knora-base:ListValue
                 Cardinality: 1-n
-                //TODO add GUI ELEMENT AND GUI ATTRIBUTES (LIST)
+                GUI Element: salsah-gui:Pulldown
+                GUI Attributes: List: Datierung1
             }
             Property: {
                 Name: smDatierung2
@@ -2281,7 +2456,8 @@
                 }
                 Object: knora-base:ListValue
                 Cardinality: 0-n
-                //TODO add GUI ELEMENT AND GUI ATTRIBUTES (LIST)
+                GUI Element: salsah-gui:Pulldown
+                GUI Attributes: List: Datierung2
             }
             Property: {
                 Name: smHoehe
@@ -2374,7 +2550,8 @@
                 }
                 Object: knora-base:ListValue
                 Cardinality: 1-n
-                //TODO add GUI ELEMENT AND GUI ATTRIBUTES (LIST)
+                GUI Element: salsah-gui:Pulldown
+                GUI Attributes: List: Brandspuren
             }
             Property: {
                 Name: smFeuchtigkeit
@@ -2387,7 +2564,8 @@
                 }
                 Object: knora-base:ListValue
                 Cardinality: 1-n
-                //TODO add GUI ELEMENT AND GUI ATTRIBUTES (LIST)
+                GUI Element: salsah-gui:Pulldown
+                GUI Attributes: List: Feuchtigkeit
             }
             Property: {
                 Name: Zeichnung
