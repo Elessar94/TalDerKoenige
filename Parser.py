@@ -7,7 +7,7 @@ class Parser:
     project_data = {}
 
     def __init__(self, file: str):
-        self.file = open(file, 'r')
+        self.file = open(file, 'r',encoding="utf8",)
         self.data=self.prepare_lines()
         self.already_read = list()
 
@@ -213,9 +213,9 @@ class Parser:
                 self.project_data["Keywords"] = self.read_normal_list(lines.index(line),self.find_end(lines.index(line)))
             if line.find("Logo")!=-1:
                 self.project_data["Logo"] = self.read_normal_list(lines.index(line),self.find_end(lines.index(line)))
-            if line.find("List")!=-1:
-                print("Reached Loop")
-                self.project_data['Lists'].append(self.read_multiple_choice(i,self.find_end(i)))
+            if line.find("List")!=-1 :
+               self.project_data['Lists'].append(self.read_multiple_choice(i,self.find_end(i)))
+
             self.already_read.append(i)
 
         return self.project_data

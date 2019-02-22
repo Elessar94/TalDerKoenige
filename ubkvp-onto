@@ -12,7 +12,7 @@
     Logo: {
     }
     List: {
-        Name : Autor
+        Name: Autor
         Nodes: {
             UBKVP
             M. Kačičnik
@@ -323,7 +323,9 @@
                 Object: knora-base:ListValue
                 Cardinality: 1-n
                 GUI Element: salsah-gui:Pulldown
-                GUI Attributes: List: Datierung1
+                GUI Attributes: {
+                    List: Datierung1
+                }
             }
             Property: {
                 Name: persoenlichkeitDatierung2
@@ -337,9 +339,12 @@
                 Object: knora-base:ListValue
                 Cardinality: 1-n
                 GUI Element: salsah-gui:Pulldown
-                GUI Attributes: List: Datierung2
+                GUI Attributes: {
+                    List: Datierung2
+                    }
+                }
             }
-        }
+
         Resource: {
             Name:Bild
             Super classes: {
@@ -561,7 +566,9 @@
                 Object: knora-base:ListValue
                 Cardinality: 0-1
                 GUI Element: salsah-gui:Pulldown
-                GUI Attributes: LIST: Autor
+                GUI Attributes: {
+                    List: Autor
+                    }
             }
         }
         Resource: {
@@ -2341,7 +2348,9 @@
                 Object: knora-base:ListValue
                 Cardinality: 1-n
                 GUI Element: salsah-gui:Pulldown
-                GUI Attributes: List: Material
+                GUI Attributes: {
+                    List: Material
+                    }
             }
             Property: {
                 Name: smMaterialZusatz
@@ -2355,7 +2364,9 @@
                 Object: knora-base:ListValue
                 Cardinality: 0-n
                 GUI Element: salsah-gui:Pulldown
-                GUI Attributes: List: Material Zusatz
+                GUI Attributes: {
+                    List: Material Zusatz
+                    }
             }
             Property: {
                 Name: smObjekttyp
@@ -2369,7 +2380,9 @@
                 Object: knora-base:ListValue
                 Cardinality: 1-n
                 GUI Element: salsah-gui:Pulldown
-                GUI Attributes: List: Objekttyp
+                GUI Attributes: {
+                    List: Objekttyp
+                    }
             }
             Property: {
                 Name: smObjekttypZusatz
@@ -2383,7 +2396,9 @@
                 Object: knora-base:ListValue
                 Cardinality: 0-n
                 GUI Element: salsah-gui:Pulldown
-                GUI Attributes: List: Objekttyp Zusatz
+                GUI Attributes: {
+                List: Objekttyp Zusatz
+                }
             }
             Property: {
                 Name: smDekoration
@@ -2397,7 +2412,9 @@
                 Object: knora-base:ListValue
                 Cardinality: 0-n
                 GUI Element: salsah-gui:Pulldown
-                GUI Attributes: List: Dekoration
+                GUI Attributes: {
+                 List: Dekoration
+                 }
             }
             Property: {
                 Name: smObjektbeschreibung
@@ -2443,7 +2460,9 @@
                 Object: knora-base:ListValue
                 Cardinality: 1-n
                 GUI Element: salsah-gui:Pulldown
-                GUI Attributes: List: Datierung1
+                GUI Attributes: {
+                    List: Datierung1
+                    }
             }
             Property: {
                 Name: smDatierung2
@@ -2457,7 +2476,9 @@
                 Object: knora-base:ListValue
                 Cardinality: 0-n
                 GUI Element: salsah-gui:Pulldown
-                GUI Attributes: List: Datierung2
+                GUI Attributes: {
+                    List: Datierung2
+                    }
             }
             Property: {
                 Name: smHoehe
@@ -2551,7 +2572,9 @@
                 Object: knora-base:ListValue
                 Cardinality: 1-n
                 GUI Element: salsah-gui:Pulldown
-                GUI Attributes: List: Brandspuren
+                GUI Attributes: {
+                    List: Brandspuren
+                    }
             }
             Property: {
                 Name: smFeuchtigkeit
@@ -2565,7 +2588,9 @@
                 Object: knora-base:ListValue
                 Cardinality: 1-n
                 GUI Element: salsah-gui:Pulldown
-                GUI Attributes: List: Feuchtigkeit
+                GUI Attributes: {
+                    List: Feuchtigkeit
+                    }
             }
             Property: {
                 Name: Zeichnung
