@@ -138,6 +138,8 @@ class Parser:
 
             self.already_read.append(i)
 
+        resource_data["Super classes"] = resource_data["Super classes"][0]  # bad hack! TODO: make it better
+        resource_data["Comments"] = None
         return resource_data
 
     def read_attributes(self,start, end):
@@ -218,7 +220,8 @@ class Parser:
 
             self.already_read.append(i)
 
+        self.project_data["Logo"] = None  # no logos yet!
         return self.project_data
 
 parser = Parser("ubkvp-onto")
-pprint.pprint(parser.read_project())
+#pprint.pprint(parser.read_project())

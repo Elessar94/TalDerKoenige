@@ -1,5 +1,5 @@
 import Parser
-import tdk_create_onto.Knora
+import tdk_create_onto
 import Checker
 import pprint
 
@@ -15,8 +15,8 @@ class Creator:
     def __init__(self, file, server, user, password):
         self.parser = Parser.Parser(file)
         self.data = self.parser.read_project()
-        checker = Checker.Checker(self.data)
-        self.data = checker.check()
+        #checker = Checker.Checker(self.data)
+        #self.data = checker.check()
         self.interface = tdk_create_onto.Knora(server, user, password)
 
     def create_project(self):
@@ -43,10 +43,10 @@ class Creator:
             self.onto_lastmoddate = returns["last_onto_date"]
     def create_lists(self):
         for list in self.data['Lists']:
-            self.lists_iri[list['Name']]=self.interface.create_list_node(self.project_iri, {"@de",list['Nodes'][0]},None,list['Nodes'][0],None)
+            self.lists_iri[list['Name']]=self.interface.create_list_node(self.project_iri, {"@de": list['Nodes'][0]},None,list['Nodes'][0],None)
         for node in list['Nodes']:
             if not node.equals(list['Nodes'][0]):
-                self.interface.create_list_node(self.project_iri,{"@de",node},None,node,list['Nodes'][0])
+                self.interface.create_list_node(self.project_iri, {"@de": node}, None, node, list['Nodes'][0])
         return
 
     def create_properties(self):
@@ -87,5 +87,5 @@ class Creator:
         self.link_properties_to_res()
 
 
-creator = Creator("ubkvp-onto", 0, 0, 0)
+creator = Creator("ubkvp-onto", "http://0.0.0.0:3333", "root@example.com", "test")
 creator.create()

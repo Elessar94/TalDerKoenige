@@ -37,6 +37,9 @@ class Knora:
         :param result: The input to check, usually JSON format
         :return: Possible KnoraError that is being raised
         """
+        if result.status_code != 200:
+            raise KnoraError("KNORA-ERROR: status code=" + str(result.status_code) + "\nMessage:" + result.text)
+
         if 'error' in result:
             raise KnoraError("KNORA-ERROR: API error: " + result.error)
 
@@ -98,6 +101,7 @@ class Knora:
         }
 
         jsondata = json.dumps(project)
+        pprint.pprint(project)
 
         req = requests.post(self.server + "/admin/projects",
                             headers={'Content-Type': 'application/json; charset=UTF-8'},
@@ -490,18 +494,24 @@ class Knora:
         #
         # using map and iterable to get the proper format
         #
+
         labels = list(map(lambda p: {"language": p[0], "value": p[1]}, labels.items()))
 
         #
         # using map and iterable to get the proper format
         #
-        comments = list(map(lambda p: {"language": p[0], "value": p[1]}, comments.items()))
+        if comments is not None:
+            comments = list(map(lambda p: {"language": p[0], "value": p[1]}, comments.items()))
 
         listnode = {
             "projectIri": project_iri,
             "labels": labels,
-            "comments": comments
         }
+
+        if comments is not None:
+            listnode["comments"] = comments
+        else:
+            listnode["comments"] = {"language": "@en", "value": "no comment"}
 
         if name:
             listnode["name"] = name
@@ -519,7 +529,12 @@ class Knora:
                             auth=(self.user, self.password))
         self.on_api_error(req)
 
+        print("--->Status=" + str(req.status_code))
+        print("--->Text=" + req.text)
+        pprint.pprint(req)
+
         res = req.json()
+
 
         print("---RESULT OF LIST NODE CREATION----")
         pprint.pprint(res)
@@ -528,79 +543,79 @@ class Knora:
         return res["list"]["listinfo"]["id"]
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument("server", help="URL of the Knora server")
-parser.add_argument("-u", "--user", help="Username for Knora")
-parser.add_argument("-p", "--password", help="The password for login")
-parser.add_argument("-n", "--nrows", type=int, help="number of records to get, -1 to get all")
-parser.add_argument("-s", "--start", type=int, help="Start at record with given number")
-args = parser.parse_args()
-
-user = 'root@example.com' if args.user is None else args.user
-password = 'test' if args.password is None else args.password
-start = args.start
-nrows = -1 if args.nrows is None else args.nrows
-
-con = Knora(args.server, user, password)
-
-proj_iri = con.create_project(
-    shortcode="1011",
-    shortname="TdK",
-    longname="Tal der Könige",
-    description={"en": "Excavation in the Valley of the Kings", "de": "Ausgrabungen im Tal der Könige"},
-    keywords=("archaeology", "excavation")
-)
-
-node1 = con.create_lsist_node(proj_iri, {"en": "ROOT"}, {"en": "This is the root node"}, "RootNode")
-subnode1 = con.create_list_node(proj_iri, {"en": "SUB1"}, {"en": "This is the sub node 1"}, "SubNode1", node1)
-subnode2 = con.create_list_node(proj_iri, {"en": "SUB2"}, {"en": "This is the sub node 2"}, "SubNode2", node1)
-subnode3 = con.create_list_node(proj_iri, {"en": "SUB3"}, {"en": "This is the ub node 3"}, "SubNode3", node1)
-
-result = con.create_ontology(
-    onto_name="tdk",
-    project_iri=proj_iri,
-    label="Tal der Könige")
-onto_iri = result["onto_iri"]
-last_onto_date = result["last_onto_date"]
-
-labels = {
-    "en": "Study Materials / Findings",
-    "de": "SM / Fund"
-}
-result = con.create_res_class(
-    onto_iri=onto_iri,
-    onto_name="tdk",
-    last_onto_date=last_onto_date,
-    class_name="SMFund",
-    super_class="knora-api:Resource",
-    labels=labels
-)
-last_onto_date = result["last_onto_date"]
-
-result = con.create_property(
-    onto_iri=onto_iri,
-    onto_name="tdk",
-    last_onto_date=last_onto_date,
-    prop_name="smAreal",
-    super_props=["knora-api:hasValue"],
-    labels={"de": "Areal", "en": "area"},
-    gui_element="salsah-gui:SimpleText",
-    gui_attributes=["size=12", "maxlength=32"],
-    subject="tdk:SMFund",
-    object="knora-api:TextValue"
-)
-last_onto_date = result["last_onto_date"]
-prop_iri = result["prop_iri"]
-
-result = con.create_cardinality(
-    onto_iri=onto_iri,
-    onto_name="tdk",
-    last_onto_date=last_onto_date,
-    class_iri="tdk:SMFund",
-    prop_iri=prop_iri,
-    occurrence="0-1"
-)
-last_onto_date = result["last_onto_date"]
-
-last_onto_date = con.get_ontology_lastmoddate(onto_iri)
-con.delete_ontology(onto_iri, last_onto_date)
+# parser = argparse.ArgumentParser()
+# parser.add_argument("server", help="URL of the Knora server")
+# parser.add_argument("-u", "--user", help="Username for Knora")
+# parser.add_argument("-p", "--password", help="The password for login")
+# parser.add_argument("-n", "--nrows", type=int, help="number of records to get, -1 to get all")
+# parser.add_argument("-s", "--start", type=int, help="Start at record with given number")
+# args = parser.parse_args()
+#
+# user = 'root@example.com' if args.user is None else args.user
+# password = 'test' if args.password is None else args.password
+# start = args.start
+# nrows = -1 if args.nrows is None else args.nrows
+#
+# con = Knora(args.server, user, password)
+#
+# proj_iri = con.create_project(
+#     shortcode="1011",
+#     shortname="TdK",
+#     longname="Tal der Könige",
+#     description={"en": "Excavation in the Valley of the Kings", "de": "Ausgrabungen im Tal der Könige"},
+#     keywords=("archaeology", "excavation")
+# )
+#
+# node1 = con.create_lsist_node(proj_iri, {"en": "ROOT"}, {"en": "This is the root node"}, "RootNode")
+# subnode1 = con.create_list_node(proj_iri, {"en": "SUB1"}, {"en": "This is the sub node 1"}, "SubNode1", node1)
+# subnode2 = con.create_list_node(proj_iri, {"en": "SUB2"}, {"en": "This is the sub node 2"}, "SubNode2", node1)
+# subnode3 = con.create_list_node(proj_iri, {"en": "SUB3"}, {"en": "This is the ub node 3"}, "SubNode3", node1)
+#
+# result = con.create_ontology(
+#     onto_name="tdk",
+#     project_iri=proj_iri,
+#     label="Tal der Könige")
+# onto_iri = result["onto_iri"]
+# last_onto_date = result["last_onto_date"]
+#
+# labels = {
+#     "en": "Study Materials / Findings",
+#     "de": "SM / Fund"
+# }
+# result = con.create_res_class(
+#     onto_iri=onto_iri,
+#     onto_name="tdk",
+#     last_onto_date=last_onto_date,
+#     class_name="SMFund",
+#     super_class="knora-api:Resource",
+#     labels=labels
+# )
+# last_onto_date = result["last_onto_date"]
+#
+# result = con.create_property(
+#     onto_iri=onto_iri,
+#     onto_name="tdk",
+#     last_onto_date=last_onto_date,
+#     prop_name="smAreal",
+#     super_props=["knora-api:hasValue"],
+#     labels={"de": "Areal", "en": "area"},
+#     gui_element="salsah-gui:SimpleText",
+#     gui_attributes=["size=12", "maxlength=32"],
+#     subject="tdk:SMFund",
+#     object="knora-api:TextValue"
+# )
+# last_onto_date = result["last_onto_date"]
+# prop_iri = result["prop_iri"]
+#
+# result = con.create_cardinality(
+#     onto_iri=onto_iri,
+#     onto_name="tdk",
+#     last_onto_date=last_onto_date,
+#     class_iri="tdk:SMFund",
+#     prop_iri=prop_iri,
+#     occurrence="0-1"
+# )
+# last_onto_date = result["last_onto_date"]
+#
+# last_onto_date = con.get_ontology_lastmoddate(onto_iri)
+# con.delete_ontology(onto_iri, last_onto_date)
