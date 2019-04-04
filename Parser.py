@@ -26,10 +26,11 @@ class Parser:
         start = line.find(to_cut)
         end = start + len(to_cut)
         new_line = line[0:start] + line[end+1:len(line)]
-        while (new_line[0]==' '):
-           new_line = new_line[1:len(line)]
-        while (new_line[-1]==' ' or new_line[-1]=='\n'):
-            new_line = new_line[0:len(new_line)-1]
+        if not new_line == "":
+            while (new_line[0]==' '):
+               new_line = new_line[1:len(line)]
+            while (new_line[-1]==' ' or new_line[-1]=='\n'):
+                new_line = new_line[0:len(new_line)-1]
         return new_line
 
     def occurences(self,string,char):
@@ -143,28 +144,29 @@ class Parser:
         return resource_data
 
     def read_attributes(self,start, end):
-        i = start -1
-        attributes_data={}
+        i = start
+        attributes_data=[]
 
-        while i<end:
-            i=i+1
-            line = self.data[i]
-            if i in self.already_read:
-                continue
-            j = line.find("=")
-            if j!=-1:
-                one=line[0:j]
-                two=line[j+1:len(line)]
-                while (one[0]==' '):
-                    one = one[1:len(one)]
-                while (two[0]==' '):
-                    two=two[1:len(two)]
-                while (one[-1]==' ' or one[-1]== '\n'):
-                    one = one[0:len(one)-1]
-                while (two[-1] == ' ' or two[-1] == '\n'):
-                    two = two[0:len(two) - 1]
-                attributes_data[one]=two
-            self.already_read.append(i)
+        while i<end-1:
+             i=i+1
+             line = self.pretty_line(self.data[i],"\n")
+             if i in self.already_read:
+                 continue
+             attributes_data.append(line)
+        #     j = line.find("=")
+        #     if j!=-1:
+        #         one=line[0:j]
+        #         two=line[j+1:len(line)]
+        #         while (one[0]==' '):
+        #             one = one[1:len(one)]
+        #         while (two[0]==' '):
+        #             two=two[1:len(two)]
+        #         while (one[-1]==' ' or one[-1]== '\n'):
+        #             one = one[0:len(one)-1]
+        #         while (two[-1] == ' ' or two[-1] == '\n'):
+        #             two = two[0:len(two) - 1]
+        #         attributes_data[one]=two
+             self.already_read.append(i)
         return attributes_data
     def read_property(self, start, end):
         property_data={}
@@ -223,5 +225,5 @@ class Parser:
         self.project_data["Logo"] = None  # no logos yet!
         return self.project_data
 
-parser = Parser("ubkvp-onto")
+#parser = Parser("ubkvp-onto")
 #pprint.pprint(parser.read_project())

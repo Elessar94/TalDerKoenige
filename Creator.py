@@ -43,24 +43,33 @@ class Creator:
             self.onto_lastmoddate = returns["last_onto_date"]
     def create_lists(self):
         for list in self.data['Lists']:
-            self.lists_iri[list['Name']]=self.interface.create_list_node(self.project_iri, {"@de": list['Nodes'][0]},None,list['Nodes'][0],None)
+            self.lists_iri[list['Name']]=self.interface.create_list_node(self.project_iri, {"de": list['Nodes'][0]},None,list['Nodes'][0],None)
         for node in list['Nodes']:
-            if not node.equals(list['Nodes'][0]):
-                self.interface.create_list_node(self.project_iri, {"@de": node}, None, node, list['Nodes'][0])
+            if not node == list['Nodes'][0]:
+                self.interface.create_list_node(self.project_iri, {"de": node}, None, node, list['Nodes'][0])
         return
 
     def create_properties(self):
         for resource in self.data['Ontology']['Resources']:
             self.properties_iri[resource['Name']] = {}
             for property in resource['Properties']:
-                if (property['GUI Attributes'].find("List")!=-1):
-                    name = self.parser.pretty_line(property['GUI Element'], "Name")
-                    property['GUI Attributes'] = '"hlist=<'+self.lists_iri[name]+'>"'
+                if not 'Comments' in property:
+                    property['Comments'] = None
+                if (property['Object'].find("List")!=-1):
+                    name = self.parser.pretty_line(property['GUI Attributes'][0], "List:")
+                    pprint.pprint(name)
+                    pprint.pprint(self.lists_iri[name])
+                    str = "hlist=<"+self.lists_iri[name]+">"
+                    property['GUI Attributes'] = str
+                if property['Object'] in self.resources_iri:
+                    property['Object'] = self.resources_iri[property['Object']]
+                if not 'GUI Attributes' in property:
+                    property['GUI Attributes'] = None
                 returns = self.interface.create_property(self.onto_iri, self.data['Ontology']['Name'],
                                                                          self.onto_lastmoddate, property['Name'],
                                                                          property['Super Properties'],
                                                                          property['Labels'], property['GUI Element'],
-                                                                         property['GUI Attributes'], resource['Name'],
+                                                                         property['GUI Attributes'], self.resources_iri[resource['Name']],
                                                                          property['Object'], property['Comments'])
                 self.properties_iri[resource['Name']][property['Name']] = returns["prop_iri"]
                 self.onto_lastmoddate = returns["last_onto_date"]

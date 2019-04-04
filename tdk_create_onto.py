@@ -101,7 +101,7 @@ class Knora:
         }
 
         jsondata = json.dumps(project)
-        pprint.pprint(project)
+        #pprint.pprint(project)
 
         req = requests.post(self.server + "/admin/projects",
                             headers={'Content-Type': 'application/json; charset=UTF-8'},
@@ -281,7 +281,7 @@ class Knora:
 
         jsondata = json.dumps(res_class, indent=3, separators=(',', ': '))
 
-        print(jsondata)
+        #print(jsondata)
         req = requests.post(self.server + "/v2/ontologies/classes",
                             headers={'Content-Type': 'application/json; charset=UTF-8'},
                             data=jsondata,
@@ -511,7 +511,7 @@ class Knora:
         if comments is not None:
             listnode["comments"] = comments
         else:
-            listnode["comments"] = {"language": "@en", "value": "no comment"}
+            listnode["comments"] = [{"language": "en", "value": "no comment"}]
 
         if name:
             listnode["name"] = name
@@ -521,7 +521,7 @@ class Knora:
 
         jsondata = json.dumps(listnode, indent=3, separators=(',', ': '))
 
-        print(jsondata)
+        #print(jsondata)
 
         req = requests.post(self.server + "/admin/lists",
                             headers={'Content-Type': 'application/json; charset=UTF-8'},
@@ -529,9 +529,9 @@ class Knora:
                             auth=(self.user, self.password))
         self.on_api_error(req)
 
-        print("--->Status=" + str(req.status_code))
-        print("--->Text=" + req.text)
-        pprint.pprint(req)
+        #print("--->Status=" + str(req.status_code))
+        #print("--->Text=" + req.text)
+        #pprint.pprint(req)
 
         res = req.json()
 

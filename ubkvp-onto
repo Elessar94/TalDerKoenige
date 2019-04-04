@@ -246,7 +246,7 @@
             Property: {
                 Name: persoenlichkeitSMFund //We use this to represent the SM/Find Nr which should be displayed in the GUI
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: SM/Fund Nr
@@ -374,7 +374,7 @@
             Property: {
                 Name: bildLage //We use this to display many properties, all connected to the location, via a link to a Lage-Object
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Lage
@@ -390,7 +390,7 @@
                 Property: {
                 Name: bildKampagne
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Kampagne
@@ -413,7 +413,7 @@
                     Language: de, Value: Datum
                     Language: en, Value: Date
                 }
-                Object: knora-api:Date-Value
+                Object: knora-api:DateValue
                 Cardinality: 0-1
                 GUI Element: salsah-gui:Date
                 GUI Attributes: {
@@ -439,13 +439,13 @@
             Property: {
                 Name: bildPositon
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Position/Befundliste
                     Language: en, Value: Position/Findslist
                 }
-                Object: knora-api:Position
+                Object: Position
                 Cardinality: 0-1
                 GUI Element: salsah-gui:SimpleText
                 GUI Attributes: {
@@ -455,7 +455,7 @@
              Property: {
                 Name: bildSMFund //We use this to represent the SM/Find Nr which should be displayed in the GUI
                 Super Properties: {
-                    knora-api:hasLinkto //
+                    knora-api:hasLinkTo //
                 }
                 Labels: {
                     Language: de, Value: SM/Fund Nr
@@ -624,12 +624,12 @@
                 }
                 Object: knora-api:DateValue
                 Cardinality: 0-1
-                GUI Element: salsah-gui:DateValue
+                GUI Element: salsah-gui:Date
             }
             Property: {
                 Name: positionKampagne
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Kampagne
@@ -645,7 +645,7 @@
             Property: {
                 Name: positionLage //We use this to replace many GUI information which can be found in Lage objects
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Lage
@@ -709,7 +709,7 @@
             Property: {
                 Name: positionDarueber
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Position darueber
@@ -725,7 +725,7 @@
             Property: {
                 Name: positionDarunter
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Position darunter
@@ -789,7 +789,7 @@
         Property: {
                 Name: positionZeichnung
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Zeichnung
@@ -842,7 +842,6 @@
                 Cardinality: 1
                 GUI Element: salsah-gui:Date
                 GUI Attributes: {
-
                 }
             }
              Property: {
@@ -859,7 +858,6 @@
                 Cardinality: 1
                 GUI Element: salsah-gui:Date
                 GUI Attributes: {
-
                 }
             }
             Property: {
@@ -897,7 +895,7 @@
             Property: {
                 Name: kampagneUmgebung
                 Super Properties: {
-                    knora-api:knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Umgebung
@@ -929,7 +927,7 @@
             Property: {
                 Name: kampagneBild
                 Super Properties: {
-                    knora-api:knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Bild
@@ -1019,7 +1017,7 @@
             Property: {
                 Name: katalogPlan
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Plan
@@ -1035,7 +1033,7 @@
             Property: {
                 Name: katalogSMFund //We use this to represent the SM/Find Nr which should be displayed in the GUI
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: SM/Fund Nr
@@ -1259,13 +1257,12 @@
                 Cardinality: 0-1
                 GUI Element: salsah-gui:Date
                 GUI Attributes: {
-                    //TODO
                 }
             }
             Property: {
                 Name: planKampagne
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Kampagne
@@ -1297,7 +1294,7 @@
             Property: {
                 Name: planPosition
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Position
@@ -1313,7 +1310,7 @@
             Property: {
                 Name: planLage //this replaces Grab, Umgebung, Areal, Raum & Schnit
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Lage
@@ -1387,13 +1384,13 @@
             Property: {
                 Name: planumPosition
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Position
                     Language: en, Value: Position
                 }
-                Object: knora-api:Position
+                Object: Position
                 Cardinality: 1
                 GUI Element: salsah-gui:SimpleText
                 GUI Attributes: {
@@ -1446,13 +1443,12 @@
                 Cardinality: 0-1
                 GUI Element: salsah-gui:Date
                 GUI Attributes: {
-                    //TODO
                 }
             }
             Property: {
                 Name: planumKampagne
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Kampagne
@@ -1500,7 +1496,7 @@
             Property: {
                 Name: planumPlan
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Plan
@@ -1516,7 +1512,7 @@
             Property: {
                 Name: planumBild
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Bild
@@ -1558,7 +1554,7 @@
             Property: {
                 Name: profilPosition
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Position
@@ -1585,13 +1581,12 @@
                 Cardinality: 0-1
                 GUI Element: salsah-gui:Date
                 GUI Attributes: {
-                    //TODO
                 }
             }
             Property: {
                 Name: profilKampagne
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Kampagne
@@ -1655,7 +1650,7 @@
             Property: {
                 Name: profilPlan
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Plan
@@ -1671,7 +1666,7 @@
             Property: {
                 Name: profilBild
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Bild
@@ -1914,22 +1909,6 @@
                 }
             }
             Property: {
-                Name: tagebuchNr
-                Super Properties: {
-                    knora-api:hasValue
-                }
-                Labels: {
-                    Language: de, Value: Nummer
-                    Language: en, Value: Number
-                }
-                Object: knora-api:IntValue
-                Cardinality: 1
-                GUI Element: salsah-gui:SimpleText
-                GUI Attributes: {
-                    size=12
-                }
-            }
-            Property: {
                 Name: tagebuchDatum
                 Super Properties: {
                     knora-api:hasValue
@@ -1943,13 +1922,12 @@
                 Cardinality: 0-1
                 GUI Element: salsah-gui:Date
                 GUI Attributes: {
-                    //TODO
                 }
             }
             Property: {
                 Name: tagebuchKampagne
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Kampagne
@@ -1966,7 +1944,7 @@
             Property: {
                 Name: tagebuchLage //with this we replace Grab, Umgebung, Areal, Raum, Schnitt
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Lage
@@ -2030,7 +2008,7 @@
             Property: {
                 Name: tagebuchZeichnung
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Zeichnung
@@ -2046,7 +2024,7 @@
             Property: {
                 Name: tagebuchPlan
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Plan
@@ -2099,13 +2077,12 @@
                 Cardinality: 0-1
                 GUI Element: salsah-gui:Date
                 GUI Attributes: {
-                    //TODO
                 }
             }
             Property: {
                 Name: zeichnungKampagne
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Kampagne
@@ -2259,7 +2236,7 @@
             Property: {
                 Name: smLage //with this we replace Grab, Umgebung, Areal, Raum, Schnitt
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Lage
@@ -2291,7 +2268,7 @@
             Property: {
                 Name: smPosition
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Position
@@ -2497,7 +2474,7 @@
                 }
             }
             Property: {
-                Name: smHoehe
+                Name: smBreite
                 Super Properties: {
                     knora-api:hasValue
                 }
@@ -2593,9 +2570,9 @@
                     }
             }
             Property: {
-                Name: Zeichnung
+                Name: smZeichnung
                 Super Properties: {
-                    knora-api:hasLinkto
+                    knora-api:hasLinkTo
                 }
                 Labels: {
                     Language: de, Value: Zeichnung
