@@ -5,7 +5,7 @@ import json
 import argparse
 import urllib
 import pprint
-
+from urllib.parse import quote_plus
 
 # TODO: recheck all the documentation of this file
 
@@ -496,34 +496,33 @@ class Knora:
         #
 
         labels = list(map(lambda p: {"language": p[0], "value": p[1]}, labels.items()))
-
-        #
-        # using map and iterable to get the proper format
-        #
-        if comments is not None:
-            comments = list(map(lambda p: {"language": p[0], "value": p[1]}, comments.items()))
-
         listnode = {
             "projectIri": project_iri,
             "labels": labels,
         }
-
+        #
+        # using map and iterable to get the proper format
+        #
         if comments is not None:
-            listnode["comments"] = comments
+            listnode["comments"] = list(map(lambda p: {"language": p[0], "value": p[1]}, comments.items()))
         else:
-            listnode["comments"] = [{"language": "en", "value": "no comment"}]
+            listnode["comments"] = []
 
-        if name:
+
+        if name is not None:
             listnode["name"] = name
 
-        if parent_iri:
+        if parent_iri is not None:
             listnode["parentNodeIri"] = parent_iri
+            url = self.server + "/admin/lists/" + quote_plus(parent_iri)
+        else:
+            url = self.server + "/admin/lists"
 
         jsondata = json.dumps(listnode, indent=3, separators=(',', ': '))
 
         #print(jsondata)
 
-        req = requests.post(self.server + "/admin/lists",
+        req = requests.post(url,
                             headers={'Content-Type': 'application/json; charset=UTF-8'},
                             data=jsondata,
                             auth=(self.user, self.password))
@@ -540,7 +539,10 @@ class Knora:
         pprint.pprint(res)
         print("=================================")
 
-        return res["list"]["listinfo"]["id"]
+        if parent_iri is not None:
+            return res['nodeinfo']['id']
+        else:
+            return res["list"]["listinfo"]["id"]
 
 
 # parser = argparse.ArgumentParser()

@@ -46,7 +46,7 @@ class Creator:
             self.lists_iri[list['Name']]=self.interface.create_list_node(self.project_iri, {"de": list['Nodes'][0]},None,list['Nodes'][0],None)
         for node in list['Nodes']:
             if not node == list['Nodes'][0]:
-                self.interface.create_list_node(self.project_iri, {"de": node}, None, node, list['Nodes'][0])
+                self.interface.create_list_node(self.project_iri, {"de": node}, None, node, self.lists_iri[list['Name']])
         return
 
     def create_properties(self):
