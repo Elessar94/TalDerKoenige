@@ -895,13 +895,13 @@
             Property: {
                 Name: kampagneUmgebung
                 Super Properties: {
-                    knora-api:hasLinkTo
+                    knora-api:hasValue
                 }
                 Labels: {
                     Language: de, Value: Umgebung
                     Language: en, Value: Surrounding
                 }
-                Object: Lage
+                Object: knora-api:TextValue
                 Cardinality: 0-n
                 GUI Element: salsah-gui:SimpleText
                 GUI Attributes: {
